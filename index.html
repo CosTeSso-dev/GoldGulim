@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ювелирный магазин</title>
+  <meta name="description" content="Ювелирные украшения: кольца, серьги, колье и браслеты." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">Aurum</a>
+      <nav class="nav" id="nav">
+        <a href="#catalog">Каталог</a>
+        <a href="#about">О нас</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">Ювелирные украшения ручной работы</p>
+        <h1 class="hero__title">Украшения, которые хранят&nbsp;историю</h1>
+        <p class="hero__text">Золото, серебро и натуральные камни. Каждое изделие проходит проверку и&nbsp;поставляется с сертификатом.</p>
+        <a href="#catalog" class="btn">Смотреть каталог</a>
+      </div>
+    </section>
+
+    <section class="section" id="catalog">
+      <div class="container">
+        <h2 class="section__title">Каталог</h2>
+        <div class="filters" id="filters" role="tablist"></div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="about">
+      <div class="container about">
+        <div>
+          <h2 class="section__title">О нас</h2>
+          <p>Мы создаём и подбираем украшения, которые хочется носить каждый день и передавать по наследству. Работаем только с сертифицированными металлами и натуральными камнями.</p>
+        </div>
+        <ul class="features">
+          <li><strong>Сертификат</strong><span>на каждое изделие</span></li>
+          <li><strong>Проба</strong><span>585 и 925, клеймо на изделии</span></li>
+          <li><strong>Доставка</strong><span>по всей стране</span></li>
+          <li><strong>Подарочная упаковка</strong><span>бесплатно</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="container contacts">
+        <h2 class="section__title">Контакты</h2>
+        <p>Чтобы заказать украшение или задать вопрос, напишите нам:</p>
+        <div class="contacts__links">
+          <a class="btn btn--outline" id="contact-whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn--outline" id="contact-telegram" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn btn--outline" id="contact-phone">Позвонить</a>
+        </div>
+        <p class="contacts__address" id="contact-address"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Aurum. Все права защищены.</div>
+  </footer>
+
+  <!-- Окно с подробным описанием товара -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" data-close aria-label="Закрыть">&times;</button>
+      <div class="modal__gallery">
+        <img id="modal-image" alt="" />
+        <div class="modal__thumbs" id="modal-thumbs"></div>
+      </div>
+      <div class="modal__info">
+        <p class="modal__category" id="modal-category"></p>
+        <h3 class="modal__title" id="modal-title"></h3>
+        <p class="modal__price" id="modal-price"></p>
+        <dl class="modal__specs" id="modal-specs"></dl>
+        <p class="modal__desc" id="modal-desc"></p>
+        <a class="btn" id="modal-order" target="_blank" rel="noopener">Заказать</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
