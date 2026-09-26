@@ -19,6 +19,10 @@
         <a href="#about">О нас</a>
         <a href="#contacts">Контакты</a>
       </nav>
+      <button class="cart-btn" id="cart-open" aria-label="Корзина">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z M9 7a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span class="cart-btn__count" id="cart-count">0</span>
+      </button>
       <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -38,8 +42,20 @@
     <section class="section" id="catalog">
       <div class="container">
         <h2 class="section__title">Каталог</h2>
-        <div class="filters" id="filters" role="tablist"></div>
+        <div class="toolbar">
+          <div class="filters" id="filters" role="tablist"></div>
+          <div class="toolbar__right">
+            <input class="search" id="search" type="search" placeholder="Поиск украшений" aria-label="Поиск" />
+            <select class="sort" id="sort" aria-label="Сортировка">
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Сначала дешевле</option>
+              <option value="price-desc">Сначала дороже</option>
+              <option value="new">Сначала новинки</option>
+            </select>
+          </div>
+        </div>
         <div class="grid" id="grid"></div>
+        <p class="empty" id="empty" hidden>Ничего не найдено. Попробуйте изменить запрос.</p>
       </div>
     </section>
 
@@ -91,10 +107,34 @@
         <p class="modal__price" id="modal-price"></p>
         <dl class="modal__specs" id="modal-specs"></dl>
         <p class="modal__desc" id="modal-desc"></p>
-        <a class="btn" id="modal-order" target="_blank" rel="noopener">Заказать</a>
+        <div class="modal__actions">
+          <button class="btn" id="modal-add" type="button">В корзину</button>
+          <a class="btn btn--outline" id="modal-order" target="_blank" rel="noopener">Заказать в 1 клик</a>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Корзина -->
+  <div class="drawer" id="cart" hidden>
+    <div class="drawer__backdrop" data-cart-close></div>
+    <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <div class="drawer__head">
+        <h3 id="cart-title">Корзина</h3>
+        <button class="modal__close" data-cart-close aria-label="Закрыть">&times;</button>
+      </div>
+      <ul class="cart-list" id="cart-list"></ul>
+      <p class="empty" id="cart-empty">Корзина пуста</p>
+      <div class="drawer__foot" id="cart-foot">
+        <div class="cart-total"><span>Итого</span><strong id="cart-total"></strong></div>
+        <a class="btn btn--block" id="cart-telegram" target="_blank" rel="noopener">Оформить в Telegram</a>
+        <a class="btn btn--outline btn--block" id="cart-whatsapp" target="_blank" rel="noopener">Оформить в WhatsApp</a>
+        <button class="link-btn" id="cart-clear" type="button">Очистить корзину</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="js/config.js"></script>
   <script src="js/products.js"></script>
