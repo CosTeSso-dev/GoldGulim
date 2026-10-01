@@ -306,11 +306,11 @@
         : t("order.ask", { name: title });
     $("#modal-order").href = telegramLink(orderText + "\n" + productUrl(lotOf(p)));
 
-    const offer = $("#modal-offer");
-    offer.hidden = soldOut || !SHOP.telegram;
-    offer.textContent = t("modal.offer");
-    // без ссылки в конце: покупатель сразу дописывает свою сумму после двоеточия
-    offer.href = telegramLink(t("order.offer", { name: title, price: priceText }));
+    // «Написать нам»: вопрос продавцу по этому лоту, покупатель дописывает его после двоеточия
+    const write = $("#modal-write");
+    write.hidden = !SHOP.telegram;
+    write.textContent = t("modal.write");
+    write.href = telegramLink(t("order.question", { name: title, price: priceText }));
     $("#modal-order").textContent = soldOut ? t("modal.notify") : t("modal.order");
   }
 

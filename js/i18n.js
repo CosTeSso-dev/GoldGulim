@@ -6,8 +6,8 @@
  */
 const I18N = {
   ru: {
-    "order.offer": "Здравствуйте! {name} ({price}). Хочу предложить свою цену: ",
-    "modal.offer": "Предложить свою цену",
+    "order.question": "Здравствуйте! У меня вопрос по изделию {name} ({price}): ",
+    "modal.write": "Написать нам",
     "lot": "Лот",
     "brand": "Opalia",
     "meta.title": "Opalia — ювелирный магазин в Нукусе",
@@ -80,8 +80,8 @@ const I18N = {
     "order.many": "Здравствуйте! Хочу оформить заказ:",
   },
   uz: {
-    "order.offer": "Assalomu alaykum! {name} ({price}). O'z narximni taklif qilmoqchiman: ",
-    "modal.offer": "O'z narxingizni taklif qiling",
+    "order.question": "Assalomu alaykum! {name} ({price}) bo'yicha savolim bor: ",
+    "modal.write": "Bizga yozing",
     "lot": "Lot",
     "brand": "Opalia",
     "meta.title": "Opalia — Nukusdagi zargarlik do'koni",
@@ -154,8 +154,8 @@ const I18N = {
     "order.many": "Assalomu alaykum! Buyurtma bermoqchiman:",
   },
   kaa: {
-    "order.offer": "Assalawma áleykum! {name} ({price}). Óz bahamdı usınbaqshıman: ",
-    "modal.offer": "Óz bahańızdı usınıń",
+    "order.question": "Assalawma áleykum! {name} ({price}) boyınsha sorawım bar: ",
+    "modal.write": "Bizge jazıń",
     "lot": "Lot",
     "brand": "Opalia",
     "meta.title": "Opalia — Nókistegi zergerlik dúkanı",

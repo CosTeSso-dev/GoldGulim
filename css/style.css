@@ -519,7 +519,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .modal__desc { margin: 0 0 28px; color: var(--muted); }
 .modal__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
 .modal__actions .btn { flex: 1 1 160px; }
-.modal__offer { align-self: center; margin-top: 14px; color: var(--accent-dark); font-weight: 500; }
+.modal__write { align-self: center; margin-top: 14px; color: var(--accent-dark); font-weight: 500; }
 .modal__share { align-self: center; margin-top: 6px; }
 
 /* ---------- Корзина ---------- */
