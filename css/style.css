@@ -598,9 +598,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 
 @media (max-width: 720px) {
-  .header__inner { gap: 10px; }
-  .logo { font-size: 26px; }
+  .header__inner { gap: 8px; }
+  .logo { font-size: 24px; letter-spacing: 0.04em; }
   .burger { display: flex; }
+  .burger,
+  .cart-btn,
+  .lang { flex-shrink: 0; }
+  .lang button { padding: 6px 8px; }
   .nav {
     position: absolute;
     top: 72px;
@@ -641,6 +645,13 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .features { grid-template-columns: 1fr; }
   .modal { padding: 0; align-items: end; }
   .modal__dialog { max-height: 92vh; border-radius: var(--radius) var(--radius) 0 0; }
+}
+
+@media (max-width: 380px) {
+  .logo { font-size: 20px; }
+  .cart-btn,
+  .burger { width: 40px; height: 40px; }
+  .lang button { padding: 6px 7px; font-size: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

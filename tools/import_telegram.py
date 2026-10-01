@@ -27,15 +27,20 @@ ROOT = Path(__file__).resolve().parent.parent
 PRODUCTS_JS = ROOT / "js" / "products.js"
 PHOTOS_DIR = ROOT / "images" / "products"
 
+# Языки перевода (кроме русского) — в том же порядке, что и в таблицах ниже:
+# узбекский и каракалпакский (латиница)
+LANGS = ("uz", "kaa")
+
+# категория: (ru, uz, kaa)
 CATEGORIES = {
-    "sets": ("Комплекты", "To'plamlar"),
-    "earrings": ("Серьги", "Sirg'alar"),
-    "rings": ("Кольца", "Uzuklar"),
-    "wedding": ("Обручальные кольца", "Nikoh uzuklari"),
-    "men": ("Мужские перстни", "Erkaklar uzuklari"),
-    "pendants": ("Кулоны", "Kulonlar"),
-    "chains": ("Цепочки и браслеты", "Zanjir va bilaguzuklar"),
-    "watches": ("Часы", "Soatlar"),
+    "sets": ("Комплекты", "To'plamlar", "Komplektler"),
+    "earrings": ("Серьги", "Sirg'alar", "Sırǵalar"),
+    "rings": ("Кольца", "Uzuklar", "Júzikler"),
+    "wedding": ("Обручальные кольца", "Nikoh uzuklari", "Neke júzikleri"),
+    "men": ("Мужские перстни", "Erkaklar uzuklari", "Erler júzikleri"),
+    "pendants": ("Кулоны", "Kulonlar", "Kulonlar"),
+    "chains": ("Цепочки и браслеты", "Zanjir va bilaguzuklar", "Shınjır hám bilezikler"),
+    "watches": ("Часы", "Soatlar", "Saatlar"),
 }
 
 # Картинка-заглушка, пока у товара нет своей фотографии
@@ -50,31 +55,40 @@ PLACEHOLDERS = {
     "watches": "bracelet.svg",
 }
 
-# (регулярное выражение, категория, название ru, название uz) — порядок важен
+# (регулярное выражение, категория, (ru, uz, kaa)) — порядок важен
 TYPES = [
-    (r"обручальн\w* кольц", "wedding", "Обручальное кольцо", "Nikoh uzugi"),
-    (r"мужск\w* перстен", "men", "Мужской перстень", "Erkaklar uzugi"),
-    (r"часы", "watches", "Часы", "Soat"),
-    (r"компл", "sets", "Комплект", "To'plam"),
-    (r"сер[её]жк|серьг|сырг|сирг", "earrings", "Серьги", "Sirg'alar"),
-    (r"кулон", "pendants", "Кулон", "Kulon"),
-    (r"браслет|блезик", "chains", "Браслет", "Bilaguzuk"),
-    (r"цепоч|трос|змейк", "chains", "Цепочка", "Zanjir"),
-    (r"кольц", "rings", "Кольцо", "Uzuk"),
+    (r"обручальн\w* кольц", "wedding", ("Обручальное кольцо", "Nikoh uzugi", "Neke júzigi")),
+    (r"мужск\w* перстен", "men", ("Мужской перстень", "Erkaklar uzugi", "Erler júzigi")),
+    (r"часы", "watches", ("Часы", "Soat", "Saat")),
+    (r"компл", "sets", ("Комплект", "To'plam", "Komplekt")),
+    (r"сер[её]жк|серьг|сырг|сирг", "earrings", ("Серьги", "Sirg'alar", "Sırǵalar")),
+    (r"кулон", "pendants", ("Кулон", "Kulon", "Kulon")),
+    (r"браслет|блезик", "chains", ("Браслет", "Bilaguzuk", "Bilezik")),
+    (r"цепоч|трос|змейк", "chains", ("Цепочка", "Zanjir", "Shınjır")),
+    (r"кольц", "rings", ("Кольцо", "Uzuk", "Júzik")),
 ]
 
+# Уточнённые названия: (ru, uz, kaa)
+MEN_WATCH = ("Часы мужские", "Erkaklar soati", "Erler saatı")
+DIAMOND_SET = ("Комплект с бриллиантами", "Brilliantli to'plam", "Brilliantlı komplekt")
+
+# (регулярное выражение, (ru, uz, kaa))
 STONES = [
-    (r"брил", "бриллианты", "brilliantlar"),
-    (r"изумруд", "изумруд", "zumrad"),
-    (r"рубин", "рубин", "yoqut"),
-    (r"александрит", "александрит", "aleksandrit"),
-    (r"лунн\w* камен", "лунный камень", "oy toshi"),
-    (r"бирюз", "бирюза", "feruza"),
-    (r"гранат", "гранат", "granat"),
-    (r"ф[иі]онит|фианит", "фианит", "fianit"),
-    (r"циркон", "цирконий", "sirkoniy"),
-    (r"разноцветн", "цветные камни", "rangli toshlar"),
+    (r"брил", ("бриллианты", "brilliantlar", "brilliantlar")),
+    (r"изумруд", ("изумруд", "zumrad", "zúmirat")),
+    (r"рубин", ("рубин", "yoqut", "yaqut")),
+    (r"александрит", ("александрит", "aleksandrit", "aleksandrit")),
+    (r"лунн\w* камен", ("лунный камень", "oy toshi", "ay tası")),
+    (r"бирюз", ("бирюза", "feruza", "piruza")),
+    (r"гранат", ("гранат", "granat", "granat")),
+    (r"ф[иі]онит|фианит", ("фианит", "fianit", "fianit")),
+    (r"циркон", ("цирконий", "sirkoniy", "cirkoniy")),
+    (r"разноцветн", ("цветные камни", "rangli toshlar", "reńli taslar")),
 ]
+
+# Металл: (ru, uz, kaa); {p} — проба
+GOLD = ("Золото {p}", "{p} probali oltin", "{p} probalı altın")
+GOLD_NO_PROBE = ("Золото", "Oltin", "Altın")
 
 # Слова в кавычках, которые не являются названием модели
 NOT_A_NAME = {"золото", "новинка", "бриллиант", "с гранатом"}
@@ -127,12 +141,13 @@ def parse_product(post):
     kind = next((t for t in TYPES if re.search(t[0], low)), None)
     if not kind:
         return None
-    _, category, name_ru, name_uz = kind
+    _, category, names = kind
 
     if category == "watches" and "мужск" in low:
-        name_ru, name_uz = "Часы мужские", "Erkaklar soati"
+        names = MEN_WATCH
     if category == "sets" and re.search(r"брил", low):
-        name_ru, name_uz = "Комплект с бриллиантами", "Brilliantli to'plam"
+        names = DIAMOND_SET
+    names = list(names)
 
     model = None
     quoted = re.search(r'["«“]\s*([^"»”]+?)\s*["»”]', text)
@@ -145,8 +160,7 @@ def parse_product(post):
         model = re.sub(r"[\s-]*(серьги|сер[её]жки|сирг'?а|сырга)$", "", model, flags=re.I).strip()
     if model:
         model = model[0].upper() + model[1:]
-        name_ru += f" «{model}»"
-        name_uz += f" «{model}»"
+        names = [f"{n} «{model}»" for n in names]
 
     proba = re.search(r"(?:проб\w*\s*(\d{3}))|(?:(\d{3})\s*проб)", low)
     proba = (proba.group(1) or proba.group(2)) if proba else None
@@ -155,25 +169,23 @@ def parse_product(post):
     weight = (weight.group(1) or weight.group(2)) if weight else None
     weight = float(weight.replace(",", ".")) if weight else None
 
-    stones = [(ru, uz) for rx, ru, uz in STONES if re.search(rx, low)]
+    stones = [words for rx, words in STONES if re.search(rx, low)]
+    materials = [m.format(p=proba) for m in GOLD] if proba else list(GOLD_NO_PROBE)
 
-    material_ru = f"Золото {proba}" if proba else "Золото"
-    material_uz = f"{proba} probali oltin" if proba else "Oltin"
+    def stones_text(i):
+        return ", ".join(s[i] for s in stones).capitalize() or None
 
     product = {
         "tg": post["id"],
-        "name": name_ru,
+        "name": names[0],
         "category": category,
         "price": None,
-        "material": material_ru,
+        "material": materials[0],
         "weight": weight,
-        "stones": ", ".join(s[0] for s in stones).capitalize() or None,
-        "uz": {
-            "name": name_uz,
-            "material": material_uz,
-            "stones": ", ".join(s[1] for s in stones).capitalize() or None,
-        },
+        "stones": stones_text(0),
     }
+    for i, lang in enumerate(LANGS, 1):
+        product[lang] = {"name": names[i], "material": materials[i], "stones": stones_text(i)}
     return product
 
 
@@ -199,8 +211,12 @@ def existing_prices():
     if not PRODUCTS_JS.exists():
         return {}
     keep = {}
-    for block in re.findall(r"\{[^{}]*?\btg:\s*\d+[^{}]*?(?:\{[^{}]*\}[^{}]*)?\}", PRODUCTS_JS.read_text("utf-8")):
-        tg = int(re.search(r"\btg:\s*(\d+)", block).group(1))
+    # каждый товар в файле начинается со строки «  {»
+    for block in re.split(r"\n  \{\n", PRODUCTS_JS.read_text("utf-8")):
+        tg = re.search(r"\btg:\s*(\d+)", block)
+        if not tg:
+            continue
+        tg = int(tg.group(1))
         fields = {}
         for key in ("price", "oldPrice"):
             m = re.search(rf"\b{key}:\s*(\d+)", block)
@@ -239,28 +255,30 @@ def render(products):
         " *   images      — фотографии; первая показывается в каталоге",
         " *   isNew       — true, если нужно показать метку «Новинка» (необязательно)",
         " *   inStock     — false, если товара нет в наличии (необязательно)",
-        " *   uz          — перевод на узбекский: name, material, stones, description.",
-        " *                 Если перевода нет, на узбекской версии покажется русский текст.",
+        " *   uz, kaa     — перевод на узбекский и каракалпакский: name, material,",
+        " *                 stones, description. Если перевода нет, покажется русский текст.",
         " */",
         "",
         "// Категории: ключ — латиницей, затем название на русском и узбекском",
         "const CATEGORIES = {",
     ]
     used = {p["category"] for p in products}
-    for key, (ru, uz) in CATEGORIES.items():
+    for key, names in CATEGORIES.items():
         if key in used:
-            out.append(f"  {key}: {{ ru: {js_value(ru)}, uz: {js_value(uz)} }},")
+            pairs = ", ".join(f"{lang}: {js_value(n)}" for lang, n in zip(("ru",) + LANGS, names))
+            out.append(f"  {key}: {{ {pairs} }},")
     out += ["};", "", "const PRODUCTS = ["]
     for p in products:
         out.append("  {")
         for key in ("id", "tg", "name", "category", "price", "oldPrice", "material", "weight", "stones", "images", "inStock"):
             if key in p and (p[key] is not None or key == "price"):
                 out.append(f"    {key}: {js_value(p[key])},")
-        uz = {k: v for k, v in p["uz"].items() if v}
-        out.append("    uz: {")
-        for k, v in uz.items():
-            out.append(f"      {k}: {js_value(v)},")
-        out.append("    },")
+        for lang in LANGS:
+            out.append(f"    {lang}: {{")
+            for k, v in p[lang].items():
+                if v:
+                    out.append(f"      {k}: {js_value(v)},")
+            out.append("    },")
         out.append("  },")
     out += ["];", ""]
     return "\n".join(out)

@@ -128,9 +128,18 @@
     })[c]);
   }
 
-  // Для поиска: регистр и разные варианты апострофа (o'/oʻ/o’) не важны
+  // Для поиска: регистр, варианты апострофа (o'/oʻ/o’) и надстрочные знаки
+  // каракалпакского алфавита (á, ǵ, ı, ń, ó, ú) не важны
   function normalize(str) {
-    return String(str).toLowerCase().replace(/[ʻʼ‘’`]/g, "'").replace(/ё/g, "е");
+    return String(str)
+      .toLowerCase()
+      .replace(/ё/g, "е")
+      .replace(/й/g, "\u0000")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\u0000/g, "й")
+      .replace(/ı/g, "i")
+      .replace(/[ʻʼ‘’`]/g, "'");
   }
 
   function findProduct(id) {

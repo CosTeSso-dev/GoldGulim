@@ -18,20 +18,20 @@
  *   images      — фотографии; первая показывается в каталоге
  *   isNew       — true, если нужно показать метку «Новинка» (необязательно)
  *   inStock     — false, если товара нет в наличии (необязательно)
- *   uz          — перевод на узбекский: name, material, stones, description.
- *                 Если перевода нет, на узбекской версии покажется русский текст.
+ *   uz, kaa     — перевод на узбекский и каракалпакский: name, material,
+ *                 stones, description. Если перевода нет, покажется русский текст.
  */
 
 // Категории: ключ — латиницей, затем название на русском и узбекском
 const CATEGORIES = {
-  sets: { ru: "Комплекты", uz: "To'plamlar" },
-  earrings: { ru: "Серьги", uz: "Sirg'alar" },
-  rings: { ru: "Кольца", uz: "Uzuklar" },
-  wedding: { ru: "Обручальные кольца", uz: "Nikoh uzuklari" },
-  men: { ru: "Мужские перстни", uz: "Erkaklar uzuklari" },
-  pendants: { ru: "Кулоны", uz: "Kulonlar" },
-  chains: { ru: "Цепочки и браслеты", uz: "Zanjir va bilaguzuklar" },
-  watches: { ru: "Часы", uz: "Soatlar" },
+  sets: { ru: "Комплекты", uz: "To'plamlar", kaa: "Komplektler" },
+  earrings: { ru: "Серьги", uz: "Sirg'alar", kaa: "Sırǵalar" },
+  rings: { ru: "Кольца", uz: "Uzuklar", kaa: "Júzikler" },
+  wedding: { ru: "Обручальные кольца", uz: "Nikoh uzuklari", kaa: "Neke júzikleri" },
+  men: { ru: "Мужские перстни", uz: "Erkaklar uzuklari", kaa: "Erler júzikleri" },
+  pendants: { ru: "Кулоны", uz: "Kulonlar", kaa: "Kulonlar" },
+  chains: { ru: "Цепочки и браслеты", uz: "Zanjir va bilaguzuklar", kaa: "Shınjır hám bilezikler" },
+  watches: { ru: "Часы", uz: "Soatlar", kaa: "Saatlar" },
 };
 
 const PRODUCTS = [
@@ -50,6 +50,11 @@ const PRODUCTS = [
       material: "Oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "Altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 2,
@@ -63,6 +68,10 @@ const PRODUCTS = [
     uz: {
       name: "Zanjir",
       material: "Oltin",
+    },
+    kaa: {
+      name: "Shınjır",
+      material: "Altın",
     },
   },
   {
@@ -78,6 +87,10 @@ const PRODUCTS = [
       name: "Erkaklar soati",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Erler saatı",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 4,
@@ -92,6 +105,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam",
       material: "Oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "Altın",
       stones: "Brilliantlar",
     },
   },
@@ -110,6 +128,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "583 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 6,
@@ -122,6 +145,10 @@ const PRODUCTS = [
     uz: {
       name: "Kulon",
       material: "Oltin",
+    },
+    kaa: {
+      name: "Kulon",
+      material: "Altın",
     },
   },
   {
@@ -137,6 +164,10 @@ const PRODUCTS = [
       name: "Sirg'alar «Союз»",
       material: "Oltin",
     },
+    kaa: {
+      name: "Sırǵalar «Союз»",
+      material: "Altın",
+    },
   },
   {
     id: 8,
@@ -150,6 +181,10 @@ const PRODUCTS = [
     uz: {
       name: "To'plam «Союз»",
       material: "Oltin",
+    },
+    kaa: {
+      name: "Komplekt «Союз»",
+      material: "Altın",
     },
   },
   {
@@ -165,6 +200,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam",
       material: "Oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "Altın",
       stones: "Brilliantlar",
     },
   },
@@ -183,6 +223,11 @@ const PRODUCTS = [
       material: "Oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "Altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 11,
@@ -196,6 +241,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Союз»",
       material: "Oltin",
+    },
+    kaa: {
+      name: "Sırǵalar «Союз»",
+      material: "Altın",
     },
   },
   {
@@ -212,6 +261,11 @@ const PRODUCTS = [
       material: "750 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Sırǵalar",
+      material: "750 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 13,
@@ -225,6 +279,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Союз»",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar «Союз»",
+      material: "583 probalı altın",
     },
   },
   {
@@ -242,6 +300,11 @@ const PRODUCTS = [
       material: "Oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Sırǵalar",
+      material: "Altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 15,
@@ -256,6 +319,10 @@ const PRODUCTS = [
       name: "Bilaguzuk",
       material: "Oltin",
     },
+    kaa: {
+      name: "Bilezik",
+      material: "Altın",
+    },
   },
   {
     id: 16,
@@ -269,6 +336,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam",
       material: "583 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "583 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -286,6 +358,11 @@ const PRODUCTS = [
       material: "750 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "750 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 18,
@@ -299,6 +376,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam",
       material: "750 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "750 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -317,6 +399,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "583 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 20,
@@ -333,6 +420,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 21,
@@ -346,6 +438,10 @@ const PRODUCTS = [
     uz: {
       name: "To'plam",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Komplekt",
+      material: "583 probalı altın",
     },
   },
   {
@@ -363,6 +459,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Feruza",
     },
+    kaa: {
+      name: "Sırǵalar «Бирюза»",
+      material: "583 probalı altın",
+      stones: "Piruza",
+    },
   },
   {
     id: 23,
@@ -377,6 +478,11 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Бадам»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Sırǵalar «Бадам»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -395,6 +501,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 25,
@@ -409,6 +520,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Бахча сарай»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Бахча сарай»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -427,6 +543,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Ромашка»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 27,
@@ -441,6 +562,11 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk «Сказка»",
       material: "583 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Júzik «Сказка»",
+      material: "583 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -459,6 +585,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar, zumrad",
     },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
+      stones: "Brilliantlar, zúmirat",
+    },
   },
   {
     id: 29,
@@ -472,6 +603,10 @@ const PRODUCTS = [
     uz: {
       name: "Erkaklar uzugi",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Erler júzigi",
+      material: "585 probalı altın",
     },
   },
   {
@@ -487,6 +622,10 @@ const PRODUCTS = [
       name: "Erkaklar uzugi",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Erler júzigi",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 31,
@@ -500,6 +639,10 @@ const PRODUCTS = [
     uz: {
       name: "Erkaklar uzugi",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Erler júzigi",
+      material: "583 probalı altın",
     },
   },
   {
@@ -515,6 +658,10 @@ const PRODUCTS = [
       name: "Erkaklar uzugi",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Erler júzigi",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 33,
@@ -528,6 +675,10 @@ const PRODUCTS = [
     uz: {
       name: "Nikoh uzugi",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Neke júzigi",
+      material: "585 probalı altın",
     },
   },
   {
@@ -543,6 +694,10 @@ const PRODUCTS = [
       name: "Nikoh uzugi",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Neke júzigi",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 35,
@@ -556,6 +711,10 @@ const PRODUCTS = [
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
     },
   },
   {
@@ -571,6 +730,10 @@ const PRODUCTS = [
       name: "Nikoh uzugi",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 37,
@@ -584,6 +747,10 @@ const PRODUCTS = [
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
     },
   },
   {
@@ -599,6 +766,10 @@ const PRODUCTS = [
       name: "Nikoh uzugi",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 39,
@@ -612,6 +783,10 @@ const PRODUCTS = [
     uz: {
       name: "Nikoh uzugi",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Neke júzigi",
+      material: "585 probalı altın",
     },
   },
   {
@@ -627,6 +802,10 @@ const PRODUCTS = [
       name: "Nikoh uzugi",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 41,
@@ -640,6 +819,10 @@ const PRODUCTS = [
     uz: {
       name: "Nikoh uzugi",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Neke júzigi",
+      material: "585 probalı altın",
     },
   },
   {
@@ -655,6 +838,10 @@ const PRODUCTS = [
       name: "Nikoh uzugi",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Neke júzigi",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 43,
@@ -668,6 +855,10 @@ const PRODUCTS = [
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
     },
   },
   {
@@ -683,6 +874,10 @@ const PRODUCTS = [
       name: "Nikoh uzugi",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 45,
@@ -696,6 +891,10 @@ const PRODUCTS = [
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
     },
   },
   {
@@ -711,6 +910,10 @@ const PRODUCTS = [
       name: "Nikoh uzugi",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 47,
@@ -724,6 +927,10 @@ const PRODUCTS = [
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
     },
   },
   {
@@ -739,6 +946,10 @@ const PRODUCTS = [
       name: "Nikoh uzugi",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 49,
@@ -753,6 +964,10 @@ const PRODUCTS = [
       name: "Nikoh uzugi",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Neke júzigi",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 50,
@@ -766,6 +981,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
     },
   },
   {
@@ -783,6 +1002,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 52,
@@ -796,6 +1020,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
     },
   },
   {
@@ -813,6 +1041,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 54,
@@ -827,6 +1060,10 @@ const PRODUCTS = [
       name: "Uzuk",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 55,
@@ -840,6 +1077,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
     },
   },
   {
@@ -857,6 +1098,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 57,
@@ -870,6 +1116,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
     },
   },
   {
@@ -885,6 +1135,11 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -903,6 +1158,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 60,
@@ -916,6 +1176,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
     },
   },
   {
@@ -931,6 +1195,10 @@ const PRODUCTS = [
       name: "Uzuk",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 62,
@@ -944,6 +1212,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
     },
   },
   {
@@ -959,6 +1231,10 @@ const PRODUCTS = [
       name: "Uzuk",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 64,
@@ -972,6 +1248,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
     },
   },
   {
@@ -987,6 +1267,10 @@ const PRODUCTS = [
       name: "Uzuk",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 66,
@@ -1000,6 +1284,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
     },
   },
   {
@@ -1015,6 +1303,10 @@ const PRODUCTS = [
       name: "Uzuk",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 68,
@@ -1028,6 +1320,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "585 probalı altın",
     },
   },
   {
@@ -1043,6 +1339,10 @@ const PRODUCTS = [
       name: "Uzuk",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 70,
@@ -1056,6 +1356,10 @@ const PRODUCTS = [
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Júzik",
+      material: "583 probalı altın",
     },
   },
   {
@@ -1071,6 +1375,10 @@ const PRODUCTS = [
       name: "Kulon",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Kulon",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 72,
@@ -1084,6 +1392,10 @@ const PRODUCTS = [
     uz: {
       name: "Kulon",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Kulon",
+      material: "585 probalı altın",
     },
   },
   {
@@ -1099,6 +1411,10 @@ const PRODUCTS = [
       name: "Kulon",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Kulon",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 74,
@@ -1112,6 +1428,10 @@ const PRODUCTS = [
     uz: {
       name: "Kulon",
       material: "750 probali oltin",
+    },
+    kaa: {
+      name: "Kulon",
+      material: "750 probalı altın",
     },
   },
   {
@@ -1127,6 +1447,10 @@ const PRODUCTS = [
       name: "Kulon",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Kulon",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 76,
@@ -1140,6 +1464,10 @@ const PRODUCTS = [
     uz: {
       name: "Kulon",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Kulon",
+      material: "583 probalı altın",
     },
   },
   {
@@ -1155,6 +1483,10 @@ const PRODUCTS = [
       name: "Kulon",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Kulon",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 78,
@@ -1168,6 +1500,10 @@ const PRODUCTS = [
     uz: {
       name: "Kulon",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Kulon",
+      material: "583 probalı altın",
     },
   },
   {
@@ -1183,6 +1519,10 @@ const PRODUCTS = [
       name: "Kulon",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Kulon",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 80,
@@ -1196,6 +1536,10 @@ const PRODUCTS = [
     uz: {
       name: "Kulon",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Kulon",
+      material: "585 probalı altın",
     },
   },
   {
@@ -1211,6 +1555,10 @@ const PRODUCTS = [
       name: "Bilaguzuk",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Bilezik",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 82,
@@ -1224,6 +1572,10 @@ const PRODUCTS = [
     uz: {
       name: "Bilaguzuk",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Bilezik",
+      material: "585 probalı altın",
     },
   },
   {
@@ -1239,6 +1591,10 @@ const PRODUCTS = [
       name: "Soat",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Saat",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 84,
@@ -1252,6 +1608,10 @@ const PRODUCTS = [
     uz: {
       name: "Zanjir «Мидас»",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Shınjır «Мидас»",
+      material: "585 probalı altın",
     },
   },
   {
@@ -1267,6 +1627,10 @@ const PRODUCTS = [
       name: "Zanjir",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Shınjır",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 86,
@@ -1280,6 +1644,10 @@ const PRODUCTS = [
     uz: {
       name: "Zanjir «Колокольчик»",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Shınjır «Колокольчик»",
+      material: "583 probalı altın",
     },
   },
   {
@@ -1295,6 +1663,10 @@ const PRODUCTS = [
       name: "Bilaguzuk",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Bilezik",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 88,
@@ -1309,6 +1681,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Guldaste»",
       material: "583 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Guldaste»",
+      material: "583 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1327,6 +1704,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Звёздочка»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 90,
@@ -1341,6 +1723,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Ткач»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Ткач»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1359,6 +1746,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Guldaste»",
+      material: "583 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 92,
@@ -1373,6 +1765,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Корона»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Корона»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1391,6 +1788,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Бахча сарай»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 94,
@@ -1405,6 +1807,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Ободок»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Ободок»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1423,6 +1830,11 @@ const PRODUCTS = [
       material: "750 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Висячка»",
+      material: "750 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 96,
@@ -1437,6 +1849,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Gulim»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Gulim»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1455,6 +1872,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Пламя»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 98,
@@ -1469,6 +1891,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Шахмат»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Шахмат»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1487,6 +1914,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Ободок»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 100,
@@ -1501,6 +1933,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Тарелка»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Тарелка»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1519,6 +1956,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «9 go'zal»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 102,
@@ -1533,6 +1975,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1551,6 +1998,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Нежный»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 104,
@@ -1565,6 +2017,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Розочка»",
       material: "583 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Розочка»",
+      material: "583 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1583,6 +2040,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Виноград»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 106,
@@ -1597,6 +2059,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Бай хатын»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Бай хатын»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1615,6 +2082,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Sirkoniy",
     },
+    kaa: {
+      name: "Komplekt «Золотой»",
+      material: "585 probalı altın",
+      stones: "Cirkoniy",
+    },
   },
   {
     id: 108,
@@ -1629,6 +2101,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Салют»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Салют»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1647,6 +2124,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 110,
@@ -1661,6 +2143,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Мадонна»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Мадонна»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1679,6 +2166,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «7 красавиц»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 112,
@@ -1693,6 +2185,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Бахчасарай квадрат»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Бахчасарай квадрат»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1711,6 +2208,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Галстук»",
+      material: "583 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 114,
@@ -1725,6 +2227,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Большая розочка»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Большая розочка»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1743,6 +2250,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Чархпалак»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 116,
@@ -1757,6 +2269,11 @@ const PRODUCTS = [
     uz: {
       name: "Brilliantli to'plam «Бантик»",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Brilliantlı komplekt «Бантик»",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1775,6 +2292,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt «Вишня»",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 118,
@@ -1791,6 +2313,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Brilliantlar",
     },
+    kaa: {
+      name: "Brilliantlı komplekt",
+      material: "585 probalı altın",
+      stones: "Brilliantlar",
+    },
   },
   {
     id: 119,
@@ -1804,6 +2331,10 @@ const PRODUCTS = [
     uz: {
       name: "To'plam «Поцелуй»",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Komplekt «Поцелуй»",
+      material: "583 probalı altın",
     },
   },
   {
@@ -1819,6 +2350,10 @@ const PRODUCTS = [
       name: "Sirg'alar «Шарик»",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Sırǵalar «Шарик»",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 121,
@@ -1833,6 +2368,10 @@ const PRODUCTS = [
       name: "Sirg'alar «Ромбик»",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Sırǵalar «Ромбик»",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 122,
@@ -1846,6 +2385,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar",
+      material: "585 probalı altın",
     },
   },
   {
@@ -1863,6 +2406,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Granat",
     },
+    kaa: {
+      name: "Sırǵalar",
+      material: "583 probalı altın",
+      stones: "Granat",
+    },
   },
   {
     id: 124,
@@ -1876,6 +2424,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Капуста»",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar «Капуста»",
+      material: "583 probalı altın",
     },
   },
   {
@@ -1893,6 +2445,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Fianit",
     },
+    kaa: {
+      name: "Sırǵalar «Висячие фионит»",
+      material: "583 probalı altın",
+      stones: "Fianit",
+    },
   },
   {
     id: 126,
@@ -1906,6 +2463,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar",
+      material: "583 probalı altın",
     },
   },
   {
@@ -1921,6 +2482,10 @@ const PRODUCTS = [
       name: "Sirg'alar «Труба»",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Sırǵalar «Труба»",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 128,
@@ -1934,6 +2499,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Подушка»",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar «Подушка»",
+      material: "583 probalı altın",
     },
   },
   {
@@ -1949,6 +2518,10 @@ const PRODUCTS = [
       name: "Sirg'alar «Ромбик»",
       material: "583 probali oltin",
     },
+    kaa: {
+      name: "Sırǵalar «Ромбик»",
+      material: "583 probalı altın",
+    },
   },
   {
     id: 130,
@@ -1963,6 +2536,11 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Sırǵalar",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -1981,6 +2559,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Granat",
     },
+    kaa: {
+      name: "Sırǵalar «Неспелые гранаты»",
+      material: "583 probalı altın",
+      stones: "Granat",
+    },
   },
   {
     id: 132,
@@ -1997,6 +2580,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Oy toshi",
     },
+    kaa: {
+      name: "Sırǵalar «Лунный камень»",
+      material: "583 probalı altın",
+      stones: "Ay tası",
+    },
   },
   {
     id: 133,
@@ -2011,6 +2599,10 @@ const PRODUCTS = [
       name: "Sirg'alar «Бахча сарай»",
       material: "585 probali oltin",
     },
+    kaa: {
+      name: "Sırǵalar «Бахча сарай»",
+      material: "585 probalı altın",
+    },
   },
   {
     id: 134,
@@ -2024,6 +2616,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Шарик»",
       material: "585 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar «Шарик»",
+      material: "585 probalı altın",
     },
   },
   {
@@ -2041,6 +2637,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Fianit",
     },
+    kaa: {
+      name: "Sırǵalar «Фионит»",
+      material: "585 probalı altın",
+      stones: "Fianit",
+    },
   },
   {
     id: 136,
@@ -2054,6 +2655,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Поцелуй детский»",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar «Поцелуй детский»",
+      material: "583 probalı altın",
     },
   },
   {
@@ -2071,6 +2676,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Yoqut",
     },
+    kaa: {
+      name: "Sırǵalar «Рубин»",
+      material: "583 probalı altın",
+      stones: "Yaqut",
+    },
   },
   {
     id: 138,
@@ -2084,6 +2694,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Груша»",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar «Груша»",
+      material: "583 probalı altın",
     },
   },
   {
@@ -2099,6 +2713,11 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Александрит»",
       material: "583 probali oltin",
+      stones: "Aleksandrit",
+    },
+    kaa: {
+      name: "Sırǵalar «Александрит»",
+      material: "583 probalı altın",
       stones: "Aleksandrit",
     },
   },
@@ -2117,6 +2736,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Fianit",
     },
+    kaa: {
+      name: "Sırǵalar «Фионит-розочка»",
+      material: "585 probalı altın",
+      stones: "Fianit",
+    },
   },
   {
     id: 141,
@@ -2132,6 +2756,11 @@ const PRODUCTS = [
       name: "Sirg'alar «Бирюза»",
       material: "583 probali oltin",
       stones: "Feruza",
+    },
+    kaa: {
+      name: "Sırǵalar «Бирюза»",
+      material: "583 probalı altın",
+      stones: "Piruza",
     },
   },
   {
@@ -2149,6 +2778,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Feruza",
     },
+    kaa: {
+      name: "Sırǵalar «Бирюза»",
+      material: "585 probalı altın",
+      stones: "Piruza",
+    },
   },
   {
     id: 143,
@@ -2164,6 +2798,11 @@ const PRODUCTS = [
       name: "Sirg'alar «Бирюза»",
       material: "583 probali oltin",
       stones: "Feruza",
+    },
+    kaa: {
+      name: "Sırǵalar «Бирюза»",
+      material: "583 probalı altın",
+      stones: "Piruza",
     },
   },
   {
@@ -2181,6 +2820,11 @@ const PRODUCTS = [
       material: "583 probali oltin",
       stones: "Feruza",
     },
+    kaa: {
+      name: "Sırǵalar «Бирюза»",
+      material: "583 probalı altın",
+      stones: "Piruza",
+    },
   },
   {
     id: 145,
@@ -2194,6 +2838,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Жалпак»",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar «Жалпак»",
+      material: "583 probalı altın",
     },
   },
   {
@@ -2209,6 +2857,11 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar",
       material: "583 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Sırǵalar",
+      material: "583 probalı altın",
       stones: "Brilliantlar",
     },
   },
@@ -2227,6 +2880,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Rangli toshlar",
     },
+    kaa: {
+      name: "Sırǵalar «Семья»",
+      material: "585 probalı altın",
+      stones: "Reńli taslar",
+    },
   },
   {
     id: 148,
@@ -2243,6 +2901,11 @@ const PRODUCTS = [
       material: "585 probali oltin",
       stones: "Rangli toshlar",
     },
+    kaa: {
+      name: "Sırǵalar «Семья»",
+      material: "585 probalı altın",
+      stones: "Reńli taslar",
+    },
   },
   {
     id: 149,
@@ -2256,6 +2919,10 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar «Жалпак»",
       material: "583 probali oltin",
+    },
+    kaa: {
+      name: "Sırǵalar «Жалпак»",
+      material: "583 probalı altın",
     },
   },
   {
@@ -2271,6 +2938,11 @@ const PRODUCTS = [
     uz: {
       name: "Sirg'alar",
       material: "585 probali oltin",
+      stones: "Brilliantlar",
+    },
+    kaa: {
+      name: "Sırǵalar",
+      material: "585 probalı altın",
       stones: "Brilliantlar",
     },
   },
