@@ -44,7 +44,7 @@ const PRODUCTS = [
     material: "Золото",
     weight: 6.8,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-631-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "Oltin",
@@ -59,7 +59,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото",
     weight: 1.7,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-630-1.jpg"],
     uz: {
       name: "Zanjir",
       material: "Oltin",
@@ -73,7 +73,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 58.2,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-628-1.jpg"],
     uz: {
       name: "Erkaklar soati",
       material: "583 probali oltin",
@@ -88,7 +88,7 @@ const PRODUCTS = [
     material: "Золото",
     weight: 5.1,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-627-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "Oltin",
@@ -104,7 +104,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 14.8,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-626-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "583 probali oltin",
@@ -118,7 +118,7 @@ const PRODUCTS = [
     category: "pendants",
     price: null,
     material: "Золото",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-625-1.jpg"],
     uz: {
       name: "Kulon",
       material: "Oltin",
@@ -132,7 +132,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото",
     weight: 6.5,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-624-1.jpg"],
     uz: {
       name: "Sirg'alar «Союз»",
       material: "Oltin",
@@ -146,7 +146,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото",
     weight: 7.5,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-623-1.jpg"],
     uz: {
       name: "To'plam «Союз»",
       material: "Oltin",
@@ -161,7 +161,7 @@ const PRODUCTS = [
     material: "Золото",
     weight: 5.2,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-621-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "Oltin",
@@ -177,7 +177,7 @@ const PRODUCTS = [
     material: "Золото",
     weight: 7.2,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-620-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "Oltin",
@@ -192,7 +192,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото",
     weight: 11.0,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-613-1.jpg"],
     uz: {
       name: "Sirg'alar «Союз»",
       material: "Oltin",
@@ -206,7 +206,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 750",
     stones: "Бриллианты",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-612-1.jpg"],
     uz: {
       name: "Sirg'alar",
       material: "750 probali oltin",
@@ -221,7 +221,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 7.7,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-609-1.jpg"],
     uz: {
       name: "Sirg'alar «Союз»",
       material: "583 probali oltin",
@@ -236,7 +236,7 @@ const PRODUCTS = [
     material: "Золото",
     weight: 5.9,
     stones: "Бриллианты",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-608-1.jpg"],
     uz: {
       name: "Sirg'alar",
       material: "Oltin",
@@ -251,7 +251,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото",
     weight: 9.75,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-607-1.jpg"],
     uz: {
       name: "Bilaguzuk",
       material: "Oltin",
@@ -265,7 +265,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-602-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "583 probali oltin",
@@ -280,7 +280,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 750",
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-568-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "750 probali oltin",
@@ -295,7 +295,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 750",
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-567-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "750 probali oltin",
@@ -311,7 +311,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 9.5,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-548-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "583 probali oltin",
@@ -327,7 +327,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 9.8,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-547-1.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "585 probali oltin",
@@ -342,7 +342,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 17.0,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-546-1.jpg"],
     uz: {
       name: "To'plam",
       material: "583 probali oltin",
@@ -357,7 +357,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 1.5,
     stones: "Бирюза",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-372-1.jpg", "images/products/tg-372-2.jpg"],
     uz: {
       name: "Sirg'alar «Бирюза»",
       material: "583 probali oltin",
@@ -373,7 +373,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.5,
     stones: "Бриллианты",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-370-1.jpg", "images/products/tg-370-2.jpg"],
     uz: {
       name: "Sirg'alar «Бадам»",
       material: "585 probali oltin",
@@ -389,7 +389,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 9.0,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-368-1.jpg", "images/products/tg-368-2.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "585 probali oltin",
@@ -405,7 +405,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 7.6,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-366-1.jpg", "images/products/tg-366-2.jpg"],
     uz: {
       name: "Brilliantli to'plam «Бахча сарай»",
       material: "585 probali oltin",
@@ -421,7 +421,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 7.3,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-364-1.jpg", "images/products/tg-364-2.jpg"],
     uz: {
       name: "Brilliantli to'plam «Ромашка»",
       material: "585 probali oltin",
@@ -437,7 +437,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 4.7,
     stones: "Бриллианты",
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-362-1.jpg", "images/products/tg-362-2.jpg"],
     uz: {
       name: "Uzuk «Сказка»",
       material: "583 probali oltin",
@@ -453,7 +453,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 4.6,
     stones: "Бриллианты, изумруд",
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-360-1.jpg", "images/products/tg-360-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -468,7 +468,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 5.9,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-353-1.jpg", "images/products/tg-353-2.jpg"],
     uz: {
       name: "Erkaklar uzugi",
       material: "585 probali oltin",
@@ -482,7 +482,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 2.8,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-351-1.jpg", "images/products/tg-351-2.jpg"],
     uz: {
       name: "Erkaklar uzugi",
       material: "585 probali oltin",
@@ -496,7 +496,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 7.1,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-349-1.jpg", "images/products/tg-349-2.jpg"],
     uz: {
       name: "Erkaklar uzugi",
       material: "583 probali oltin",
@@ -510,7 +510,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 9.78,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-347-1.jpg", "images/products/tg-347-2.jpg"],
     uz: {
       name: "Erkaklar uzugi",
       material: "585 probali oltin",
@@ -524,7 +524,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 2.6,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-345-1.jpg", "images/products/tg-345-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "585 probali oltin",
@@ -538,7 +538,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 2.7,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-343-1.jpg", "images/products/tg-343-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "585 probali oltin",
@@ -552,7 +552,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 2.7,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-341-1.jpg", "images/products/tg-341-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -566,7 +566,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 1.65,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-339-1.jpg", "images/products/tg-339-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -580,7 +580,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 2.75,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-337-1.jpg", "images/products/tg-337-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -594,7 +594,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 5.3,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-335-1.jpg", "images/products/tg-335-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -608,7 +608,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 2.62,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-333-1.jpg", "images/products/tg-333-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "585 probali oltin",
@@ -622,7 +622,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 5.05,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-331-1.jpg", "images/products/tg-331-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -636,7 +636,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 2.05,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-329-1.jpg", "images/products/tg-329-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "585 probali oltin",
@@ -650,7 +650,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 3.65,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-327-1.jpg", "images/products/tg-327-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "585 probali oltin",
@@ -664,7 +664,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 5.05,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-325-1.jpg", "images/products/tg-325-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -678,7 +678,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 3.72,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-323-1.jpg", "images/products/tg-323-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -692,7 +692,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 3.2,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-321-1.jpg", "images/products/tg-321-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -706,7 +706,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 6.0,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-319-1.jpg", "images/products/tg-319-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -720,7 +720,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 2.35,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-317-1.jpg", "images/products/tg-317-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -734,7 +734,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 3.52,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-315-1.jpg", "images/products/tg-315-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -748,7 +748,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 5.5,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-313-1.jpg", "images/products/tg-313-2.jpg"],
     uz: {
       name: "Nikoh uzugi",
       material: "583 probali oltin",
@@ -762,7 +762,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 4.9,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-311-1.jpg", "images/products/tg-311-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -777,7 +777,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 3.55,
     stones: "Бриллианты",
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-309-1.jpg", "images/products/tg-309-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -792,7 +792,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 4.55,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-307-1.jpg", "images/products/tg-307-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -807,7 +807,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 4.6,
     stones: "Бриллианты",
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-305-1.jpg", "images/products/tg-305-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -822,7 +822,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 3.0,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-303-1.jpg", "images/products/tg-303-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -836,7 +836,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 4.8,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-301-1.jpg", "images/products/tg-301-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -851,7 +851,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 2.65,
     stones: "Бриллианты",
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-299-1.jpg", "images/products/tg-299-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -866,7 +866,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 7.2,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-297-1.jpg", "images/products/tg-297-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -881,7 +881,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 3.35,
     stones: "Бриллианты",
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-295-1.jpg", "images/products/tg-295-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -897,7 +897,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 2.9,
     stones: "Бриллианты",
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-293-1.jpg", "images/products/tg-293-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -912,7 +912,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 3.25,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-291-1.jpg", "images/products/tg-291-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -926,7 +926,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 2.95,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-289-1.jpg", "images/products/tg-289-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -940,7 +940,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 4.0,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-287-1.jpg", "images/products/tg-287-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -954,7 +954,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 6.4,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-285-1.jpg", "images/products/tg-285-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -968,7 +968,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 5.2,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-283-1.jpg", "images/products/tg-283-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -982,7 +982,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 1.52,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-281-1.jpg", "images/products/tg-281-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -996,7 +996,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 3.4,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-279-1.jpg", "images/products/tg-279-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -1010,7 +1010,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 4.55,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-277-1.jpg", "images/products/tg-277-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -1024,7 +1024,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 4.25,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-275-1.jpg", "images/products/tg-275-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "585 probali oltin",
@@ -1038,7 +1038,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 6.35,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-273-1.jpg", "images/products/tg-273-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -1052,7 +1052,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 4.4,
-    images: ["images/products/ring.svg"],
+    images: ["images/products/tg-271-1.jpg", "images/products/tg-271-2.jpg"],
     uz: {
       name: "Uzuk",
       material: "583 probali oltin",
@@ -1066,7 +1066,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 4.25,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-269-1.jpg", "images/products/tg-269-2.jpg"],
     uz: {
       name: "Kulon",
       material: "585 probali oltin",
@@ -1080,7 +1080,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 3.0,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-266-1.jpg", "images/products/tg-266-2.jpg"],
     uz: {
       name: "Kulon",
       material: "585 probali oltin",
@@ -1094,7 +1094,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 1.25,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-264-1.jpg", "images/products/tg-264-2.jpg"],
     uz: {
       name: "Kulon",
       material: "585 probali oltin",
@@ -1108,7 +1108,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 750",
     weight: 3.75,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-262-1.jpg", "images/products/tg-262-2.jpg"],
     uz: {
       name: "Kulon",
       material: "750 probali oltin",
@@ -1122,7 +1122,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 4.5,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-260-1.jpg", "images/products/tg-260-2.jpg"],
     uz: {
       name: "Kulon",
       material: "585 probali oltin",
@@ -1136,7 +1136,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 4.7,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-258-1.jpg", "images/products/tg-258-2.jpg"],
     uz: {
       name: "Kulon",
       material: "583 probali oltin",
@@ -1150,7 +1150,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 2.25,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-256-1.jpg", "images/products/tg-256-2.jpg"],
     uz: {
       name: "Kulon",
       material: "585 probali oltin",
@@ -1164,7 +1164,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 2.2,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-254-1.jpg", "images/products/tg-254-2.jpg"],
     uz: {
       name: "Kulon",
       material: "583 probali oltin",
@@ -1178,7 +1178,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 2.4,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-252-1.jpg", "images/products/tg-252-2.jpg"],
     uz: {
       name: "Kulon",
       material: "583 probali oltin",
@@ -1192,7 +1192,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 1.6,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-250-1.jpg", "images/products/tg-250-2.jpg"],
     uz: {
       name: "Kulon",
       material: "585 probali oltin",
@@ -1206,7 +1206,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 6.9,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-247-1.jpg", "images/products/tg-247-2.jpg", "images/products/tg-247-3.jpg"],
     uz: {
       name: "Bilaguzuk",
       material: "583 probali oltin",
@@ -1220,7 +1220,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 3.7,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-244-1.jpg", "images/products/tg-244-2.jpg", "images/products/tg-244-3.jpg"],
     uz: {
       name: "Bilaguzuk",
       material: "585 probali oltin",
@@ -1234,7 +1234,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 21.5,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-242-1.jpg", "images/products/tg-242-2.jpg"],
     uz: {
       name: "Soat",
       material: "583 probali oltin",
@@ -1248,7 +1248,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 8.6,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-240-1.jpg", "images/products/tg-240-2.jpg"],
     uz: {
       name: "Zanjir «Мидас»",
       material: "585 probali oltin",
@@ -1262,7 +1262,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 15.0,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-238-1.jpg", "images/products/tg-238-2.jpg"],
     uz: {
       name: "Zanjir",
       material: "585 probali oltin",
@@ -1276,7 +1276,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 24.5,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-236-1.jpg", "images/products/tg-236-2.jpg"],
     uz: {
       name: "Zanjir «Колокольчик»",
       material: "583 probali oltin",
@@ -1290,7 +1290,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 21.8,
-    images: ["images/products/bracelet.svg"],
+    images: ["images/products/tg-233-1.jpg", "images/products/tg-233-2.jpg", "images/products/tg-233-3.jpg"],
     uz: {
       name: "Bilaguzuk",
       material: "583 probali oltin",
@@ -1305,7 +1305,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 11.7,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-230-1.jpg", "images/products/tg-230-2.jpg", "images/products/tg-230-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Guldaste»",
       material: "583 probali oltin",
@@ -1321,7 +1321,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.75,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-227-1.jpg", "images/products/tg-227-2.jpg", "images/products/tg-227-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Звёздочка»",
       material: "585 probali oltin",
@@ -1337,7 +1337,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.9,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-224-1.jpg", "images/products/tg-224-2.jpg", "images/products/tg-224-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Ткач»",
       material: "585 probali oltin",
@@ -1353,7 +1353,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 11.4,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-221-1.jpg", "images/products/tg-221-2.jpg", "images/products/tg-221-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Guldaste»",
       material: "583 probali oltin",
@@ -1369,7 +1369,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 10.35,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-218-1.jpg", "images/products/tg-218-2.jpg", "images/products/tg-218-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Корона»",
       material: "585 probali oltin",
@@ -1385,7 +1385,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 9.4,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-215-1.jpg", "images/products/tg-215-2.jpg", "images/products/tg-215-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Бахча сарай»",
       material: "585 probali oltin",
@@ -1401,7 +1401,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.5,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-212-1.jpg", "images/products/tg-212-2.jpg", "images/products/tg-212-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Ободок»",
       material: "585 probali oltin",
@@ -1417,7 +1417,7 @@ const PRODUCTS = [
     material: "Золото 750",
     weight: 13.0,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-209-1.jpg", "images/products/tg-209-2.jpg", "images/products/tg-209-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Висячка»",
       material: "750 probali oltin",
@@ -1433,7 +1433,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 8.1,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-206-1.jpg", "images/products/tg-206-2.jpg", "images/products/tg-206-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Gulim»",
       material: "585 probali oltin",
@@ -1449,7 +1449,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 9.0,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-203-1.jpg", "images/products/tg-203-2.jpg", "images/products/tg-203-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Пламя»",
       material: "585 probali oltin",
@@ -1465,7 +1465,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 8.15,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-200-1.jpg", "images/products/tg-200-2.jpg", "images/products/tg-200-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Шахмат»",
       material: "585 probali oltin",
@@ -1481,7 +1481,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.5,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-197-1.jpg", "images/products/tg-197-2.jpg", "images/products/tg-197-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Ободок»",
       material: "585 probali oltin",
@@ -1497,7 +1497,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 10.1,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-194-1.jpg", "images/products/tg-194-2.jpg", "images/products/tg-194-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Тарелка»",
       material: "585 probali oltin",
@@ -1513,7 +1513,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 8.0,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-191-1.jpg", "images/products/tg-191-2.jpg", "images/products/tg-191-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «9 go'zal»",
       material: "585 probali oltin",
@@ -1529,7 +1529,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.5,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-188-1.jpg", "images/products/tg-188-2.jpg", "images/products/tg-188-3.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "585 probali oltin",
@@ -1545,7 +1545,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 5.7,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-185-1.jpg", "images/products/tg-185-2.jpg", "images/products/tg-185-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Нежный»",
       material: "585 probali oltin",
@@ -1561,7 +1561,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 8.2,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-182-1.jpg", "images/products/tg-182-2.jpg", "images/products/tg-182-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Розочка»",
       material: "583 probali oltin",
@@ -1577,7 +1577,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 4.9,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-179-1.jpg", "images/products/tg-179-2.jpg", "images/products/tg-179-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Виноград»",
       material: "585 probali oltin",
@@ -1593,7 +1593,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 11.45,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-176-1.jpg", "images/products/tg-176-2.jpg", "images/products/tg-176-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Бай хатын»",
       material: "585 probali oltin",
@@ -1609,7 +1609,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 8.6,
     stones: "Цирконий",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-173-1.jpg", "images/products/tg-173-2.jpg", "images/products/tg-173-3.jpg"],
     uz: {
       name: "To'plam «Золотой»",
       material: "585 probali oltin",
@@ -1625,7 +1625,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 10.8,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-170-1.jpg", "images/products/tg-170-2.jpg", "images/products/tg-170-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Салют»",
       material: "585 probali oltin",
@@ -1641,7 +1641,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.55,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-167-1.jpg", "images/products/tg-167-2.jpg", "images/products/tg-167-3.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "585 probali oltin",
@@ -1657,7 +1657,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 7.5,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-164-1.jpg", "images/products/tg-164-2.jpg", "images/products/tg-164-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Мадонна»",
       material: "585 probali oltin",
@@ -1673,7 +1673,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.45,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-161-1.jpg", "images/products/tg-161-2.jpg", "images/products/tg-161-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «7 красавиц»",
       material: "585 probali oltin",
@@ -1689,7 +1689,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 9.9,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-158-1.jpg", "images/products/tg-158-2.jpg", "images/products/tg-158-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Бахчасарай квадрат»",
       material: "585 probali oltin",
@@ -1705,7 +1705,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 9.75,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-155-1.jpg", "images/products/tg-155-2.jpg", "images/products/tg-155-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Галстук»",
       material: "583 probali oltin",
@@ -1721,7 +1721,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 8.6,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-152-1.jpg", "images/products/tg-152-2.jpg", "images/products/tg-152-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Большая розочка»",
       material: "585 probali oltin",
@@ -1737,7 +1737,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.3,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-149-1.jpg", "images/products/tg-149-2.jpg", "images/products/tg-149-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Чархпалак»",
       material: "585 probali oltin",
@@ -1753,7 +1753,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 10.0,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-146-1.jpg", "images/products/tg-146-2.jpg", "images/products/tg-146-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Бантик»",
       material: "585 probali oltin",
@@ -1769,7 +1769,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 7.35,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-143-1.jpg", "images/products/tg-143-2.jpg", "images/products/tg-143-3.jpg"],
     uz: {
       name: "Brilliantli to'plam «Вишня»",
       material: "585 probali oltin",
@@ -1785,7 +1785,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 8.2,
     stones: "Бриллианты",
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-140-1.jpg", "images/products/tg-140-2.jpg", "images/products/tg-140-3.jpg"],
     uz: {
       name: "Brilliantli to'plam",
       material: "585 probali oltin",
@@ -1800,7 +1800,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 9.0,
-    images: ["images/products/necklace.svg"],
+    images: ["images/products/tg-137-1.jpg", "images/products/tg-137-2.jpg", "images/products/tg-137-3.jpg"],
     uz: {
       name: "To'plam «Поцелуй»",
       material: "583 probali oltin",
@@ -1814,7 +1814,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 1.2,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-135-1.jpg", "images/products/tg-135-2.jpg"],
     uz: {
       name: "Sirg'alar «Шарик»",
       material: "583 probali oltin",
@@ -1828,7 +1828,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 1.2,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-133-1.jpg", "images/products/tg-133-2.jpg"],
     uz: {
       name: "Sirg'alar «Ромбик»",
       material: "585 probali oltin",
@@ -1842,7 +1842,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 2.2,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-131-1.jpg", "images/products/tg-131-2.jpg"],
     uz: {
       name: "Sirg'alar",
       material: "585 probali oltin",
@@ -1857,7 +1857,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 3.9,
     stones: "Гранат",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-129-1.jpg", "images/products/tg-129-2.jpg"],
     uz: {
       name: "Sirg'alar",
       material: "583 probali oltin",
@@ -1872,7 +1872,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 6.4,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-127-1.jpg", "images/products/tg-127-2.jpg"],
     uz: {
       name: "Sirg'alar «Капуста»",
       material: "583 probali oltin",
@@ -1887,7 +1887,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 5.45,
     stones: "Фианит",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-125-1.jpg", "images/products/tg-125-2.jpg"],
     uz: {
       name: "Sirg'alar «Висячие фионит»",
       material: "583 probali oltin",
@@ -1902,7 +1902,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 3.75,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-123-1.jpg", "images/products/tg-123-2.jpg"],
     uz: {
       name: "Sirg'alar",
       material: "583 probali oltin",
@@ -1916,7 +1916,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 4.3,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-121-1.jpg", "images/products/tg-121-2.jpg"],
     uz: {
       name: "Sirg'alar «Труба»",
       material: "583 probali oltin",
@@ -1930,7 +1930,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 4.6,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-119-1.jpg", "images/products/tg-119-2.jpg"],
     uz: {
       name: "Sirg'alar «Подушка»",
       material: "583 probali oltin",
@@ -1944,7 +1944,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 3.3,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-117-1.jpg", "images/products/tg-117-2.jpg"],
     uz: {
       name: "Sirg'alar «Ромбик»",
       material: "583 probali oltin",
@@ -1959,7 +1959,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 5.5,
     stones: "Бриллианты",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-115-1.jpg", "images/products/tg-115-2.jpg"],
     uz: {
       name: "Sirg'alar",
       material: "585 probali oltin",
@@ -1975,7 +1975,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 3.5,
     stones: "Гранат",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-113-1.jpg", "images/products/tg-113-2.jpg"],
     uz: {
       name: "Sirg'alar «Неспелые гранаты»",
       material: "583 probali oltin",
@@ -1991,7 +1991,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 8.0,
     stones: "Лунный камень",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-111-1.jpg", "images/products/tg-111-2.jpg"],
     uz: {
       name: "Sirg'alar «Лунный камень»",
       material: "583 probali oltin",
@@ -2006,7 +2006,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 6.55,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-109-1.jpg", "images/products/tg-109-2.jpg"],
     uz: {
       name: "Sirg'alar «Бахча сарай»",
       material: "585 probali oltin",
@@ -2020,7 +2020,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 585",
     weight: 6.1,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-107-1.jpg", "images/products/tg-107-2.jpg"],
     uz: {
       name: "Sirg'alar «Шарик»",
       material: "585 probali oltin",
@@ -2035,7 +2035,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 4.8,
     stones: "Фианит",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-105-1.jpg", "images/products/tg-105-2.jpg"],
     uz: {
       name: "Sirg'alar «Фионит»",
       material: "585 probali oltin",
@@ -2050,7 +2050,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 1.0,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-102-1.jpg", "images/products/tg-102-2.jpg"],
     uz: {
       name: "Sirg'alar «Поцелуй детский»",
       material: "583 probali oltin",
@@ -2065,7 +2065,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 2.75,
     stones: "Рубин",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-100-1.jpg", "images/products/tg-100-2.jpg"],
     uz: {
       name: "Sirg'alar «Рубин»",
       material: "583 probali oltin",
@@ -2080,7 +2080,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 2.5,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-98-1.jpg", "images/products/tg-98-2.jpg"],
     uz: {
       name: "Sirg'alar «Груша»",
       material: "583 probali oltin",
@@ -2095,7 +2095,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 3.86,
     stones: "Александрит",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-96-1.jpg", "images/products/tg-96-2.jpg"],
     uz: {
       name: "Sirg'alar «Александрит»",
       material: "583 probali oltin",
@@ -2111,7 +2111,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 6.0,
     stones: "Фианит",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-94-1.jpg", "images/products/tg-94-2.jpg"],
     uz: {
       name: "Sirg'alar «Фионит-розочка»",
       material: "585 probali oltin",
@@ -2127,7 +2127,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 4.3,
     stones: "Бирюза",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-92-1.jpg", "images/products/tg-92-2.jpg"],
     uz: {
       name: "Sirg'alar «Бирюза»",
       material: "583 probali oltin",
@@ -2143,7 +2143,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 5.0,
     stones: "Бирюза",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-90-1.jpg", "images/products/tg-90-2.jpg"],
     uz: {
       name: "Sirg'alar «Бирюза»",
       material: "585 probali oltin",
@@ -2159,7 +2159,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 5.4,
     stones: "Бирюза",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-88-1.jpg", "images/products/tg-88-2.jpg"],
     uz: {
       name: "Sirg'alar «Бирюза»",
       material: "583 probali oltin",
@@ -2175,7 +2175,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 5.1,
     stones: "Бирюза",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-86-1.jpg", "images/products/tg-86-2.jpg"],
     uz: {
       name: "Sirg'alar «Бирюза»",
       material: "583 probali oltin",
@@ -2190,7 +2190,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 5.0,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-84-1.jpg", "images/products/tg-84-2.jpg"],
     uz: {
       name: "Sirg'alar «Жалпак»",
       material: "583 probali oltin",
@@ -2205,7 +2205,7 @@ const PRODUCTS = [
     material: "Золото 583",
     weight: 8.5,
     stones: "Бриллианты",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-82-1.jpg", "images/products/tg-82-2.jpg"],
     uz: {
       name: "Sirg'alar",
       material: "583 probali oltin",
@@ -2221,7 +2221,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 5.65,
     stones: "Цветные камни",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-80-1.jpg", "images/products/tg-80-2.jpg"],
     uz: {
       name: "Sirg'alar «Семья»",
       material: "585 probali oltin",
@@ -2237,7 +2237,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 5.3,
     stones: "Цветные камни",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-78-1.jpg", "images/products/tg-78-2.jpg"],
     uz: {
       name: "Sirg'alar «Семья»",
       material: "585 probali oltin",
@@ -2252,7 +2252,7 @@ const PRODUCTS = [
     price: null,
     material: "Золото 583",
     weight: 5.35,
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-76-1.jpg", "images/products/tg-76-2.jpg"],
     uz: {
       name: "Sirg'alar «Жалпак»",
       material: "583 probali oltin",
@@ -2267,7 +2267,7 @@ const PRODUCTS = [
     material: "Золото 585",
     weight: 5.5,
     stones: "Бриллианты",
-    images: ["images/products/earrings.svg"],
+    images: ["images/products/tg-74-1.jpg", "images/products/tg-74-2.jpg"],
     uz: {
       name: "Sirg'alar",
       material: "585 probali oltin",
