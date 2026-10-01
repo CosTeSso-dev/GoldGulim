@@ -9,7 +9,12 @@ const SHOP = {
   // Имя пользователя Telegram без «@»
   telegram: "your_shop",
   phone: "+998 90 000-00-00",
-  address: "г. Ташкент, ул. Примерная, 1 · ежедневно 10:00–20:00",
+  address: {
+    ru: "г. Ташкент, ул. Примерная, 1 · ежедневно 10:00–20:00",
+    uz: "Toshkent sh., Namuna ko'chasi, 1 · har kuni 10:00–20:00",
+  },
   // Валюта, которая выводится после цены
-  currency: "сум",
+  currency: { ru: "сум", uz: "so'm" },
+  // Язык сайта по умолчанию: "ru" или "uz"
+  defaultLang: "ru",
 };

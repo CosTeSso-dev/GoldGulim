@@ -2,25 +2,101 @@
   "use strict";
 
   const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => document.querySelectorAll(sel);
   const CART_KEY = "aurum-cart";
+  const LANG_KEY = "aurum-lang";
+  const LANGS = Object.keys(I18N);
 
   const state = {
+    lang: detectLang(),
     category: "all",
     query: "",
     sort: "default",
     cart: loadCart(),
+    openId: null,
   };
+
+  /* ---------- Язык ---------- */
+
+  function detectLang() {
+    const fromUrl = new URLSearchParams(location.search).get("lang");
+    if (LANGS.includes(fromUrl)) return fromUrl;
+    try {
+      const saved = localStorage.getItem(LANG_KEY);
+      if (LANGS.includes(saved)) return saved;
+    } catch (e) {
+      /* хранилище недоступно */
+    }
+    return LANGS.includes(SHOP.defaultLang) ? SHOP.defaultLang : "ru";
+  }
+
+  // Текст интерфейса по ключу; {name} и т. п. заменяются значениями из vars
+  function t(key, vars) {
+    const text = I18N[state.lang][key] ?? I18N.ru[key] ?? key;
+    return vars ? text.replace(/\{(\w+)\}/g, (m, k) => vars[k] ?? m) : text;
+  }
+
+  // Значение, заданное в виде { ru: "...", uz: "..." } или простой строкой
+  function local(value) {
+    if (value && typeof value === "object") return value[state.lang] ?? value.ru;
+    return value;
+  }
+
+  // Поле товара на текущем языке (с запасным вариантом на русском)
+  function field(p, name) {
+    return (state.lang !== "ru" && p[state.lang] && p[state.lang][name]) || p[name];
+  }
+
+  function categoryName(key) {
+    return CATEGORIES[key] ? local(CATEGORIES[key]) : "";
+  }
+
+  function applyStaticTexts() {
+    document.documentElement.lang = state.lang;
+    document.title = t("meta.title");
+    $('meta[name="description"]').content = t("meta.description");
+
+    $$("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    $$("[data-i18n-placeholder]").forEach((el) => { el.placeholder = t(el.dataset.i18nPlaceholder); });
+    $$("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
+    $$("[data-lang]").forEach((btn) => {
+      const active = btn.dataset.lang === state.lang;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", active);
+    });
+    $("#contact-address").textContent = local(SHOP.address);
+  }
+
+  function setLang(lang) {
+    if (!LANGS.includes(lang) || lang === state.lang) return;
+    state.lang = lang;
+    try {
+      localStorage.setItem(LANG_KEY, lang);
+    } catch (e) {
+      /* хранилище недоступно */
+    }
+    applyStaticTexts();
+    renderFilters();
+    renderGrid();
+    renderCart();
+    if (state.openId !== null) fillModal(findProduct(state.openId));
+  }
 
   /* ---------- Утилиты ---------- */
 
   function formatPrice(value) {
-    return value.toLocaleString("ru-RU") + " " + SHOP.currency;
+    return value.toLocaleString("ru-RU") + " " + local(SHOP.currency);
   }
 
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, (c) => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
     })[c]);
+  }
+
+  // Для поиска: регистр и разные варианты апострофа (o'/oʻ/o’) не важны
+  function normalize(str) {
+    return String(str).toLowerCase().replace(/[ʻʼ‘’`]/g, "'").replace(/ё/g, "е");
   }
 
   function findProduct(id) {
@@ -35,6 +111,10 @@
     return "https://wa.me/" + SHOP.whatsapp + (text ? "?text=" + encodeURIComponent(text) : "");
   }
 
+  function productUrl(id) {
+    return location.origin + location.pathname + "?lang=" + state.lang + "#product-" + id;
+  }
+
   let toastTimer;
   function toast(message) {
     const el = $("#toast");
@@ -47,22 +127,26 @@
   /* ---------- Фильтры и каталог ---------- */
 
   function renderFilters() {
-    const items = [["all", "Все"], ...Object.entries(CATEGORIES)];
+    const items = [["all", t("catalog.all")], ...Object.keys(CATEGORIES).map((key) => [key, categoryName(key)])];
     $("#filters").innerHTML = items
       .map(([key, label]) =>
         `<button class="filter${key === state.category ? " is-active" : ""}" role="tab" ` +
-        `aria-selected="${key === state.category}" data-category="${key}">${label}</button>`)
+        `aria-selected="${key === state.category}" data-category="${key}">${escapeHtml(label)}</button>`)
       .join("");
   }
 
   function visibleProducts() {
-    const q = state.query.trim().toLowerCase();
+    const q = normalize(state.query.trim());
     let list = PRODUCTS.filter((p) => {
       if (state.category !== "all" && p.category !== state.category) return false;
       if (!q) return true;
-      return [p.name, p.material, p.stones, p.description, CATEGORIES[p.category]]
+      // ищем сразу по всем языкам, чтобы находилось при любом выбранном
+      const translations = LANGS.map((l) => p[l]).filter(Boolean);
+      return [p, ...translations]
+        .flatMap((src) => [src.name, src.material, src.stones, src.description])
+        .concat(Object.values(CATEGORIES[p.category] || {}))
         .filter(Boolean)
-        .some((field) => field.toLowerCase().includes(q));
+        .some((text) => normalize(text).includes(q));
     });
 
     const sorters = {
@@ -76,28 +160,30 @@
 
   function cardHtml(p) {
     const soldOut = p.inStock === false;
+    const name = escapeHtml(field(p, "name"));
+    const stones = field(p, "stones");
     const badges = [
-      p.isNew ? '<span class="badge">Новинка</span>' : "",
+      p.isNew ? `<span class="badge">${t("card.new")}</span>` : "",
       p.oldPrice ? `<span class="badge badge--sale">−${Math.round((1 - p.price / p.oldPrice) * 100)}%</span>` : "",
-      soldOut ? '<span class="badge badge--muted">Нет в наличии</span>' : "",
+      soldOut ? `<span class="badge badge--muted">${t("card.soldOut")}</span>` : "",
     ].join("");
 
     return `
       <article class="card${soldOut ? " is-soldout" : ""}" data-id="${p.id}">
-        <button class="card__media" data-open="${p.id}" aria-label="Подробнее: ${escapeHtml(p.name)}">
-          <img src="${p.images[0]}" alt="${escapeHtml(p.name)}" loading="lazy" />
+        <button class="card__media" data-open="${p.id}" aria-label="${escapeHtml(t("card.more", { name: field(p, "name") }))}">
+          <img src="${p.images[0]}" alt="${name}" loading="lazy" />
           <div class="card__badges">${badges}</div>
         </button>
         <div class="card__body">
-          <p class="card__category">${CATEGORIES[p.category] || ""}</p>
-          <h3 class="card__title"><button data-open="${p.id}">${escapeHtml(p.name)}</button></h3>
-          <p class="card__material">${escapeHtml(p.material)}${p.stones ? " · " + escapeHtml(p.stones) : ""}</p>
+          <p class="card__category">${escapeHtml(categoryName(p.category))}</p>
+          <h3 class="card__title"><button data-open="${p.id}">${name}</button></h3>
+          <p class="card__material">${escapeHtml(field(p, "material"))}${stones ? " · " + escapeHtml(stones) : ""}</p>
           <div class="card__footer">
             <p class="card__price">
               ${formatPrice(p.price)}
               ${p.oldPrice ? `<s>${formatPrice(p.oldPrice)}</s>` : ""}
             </p>
-            <button class="card__add" data-add="${p.id}" ${soldOut ? "disabled" : ""} aria-label="Добавить в корзину">+</button>
+            <button class="card__add" data-add="${p.id}" ${soldOut ? "disabled" : ""} aria-label="${t("card.add")}">+</button>
           </div>
         </div>
       </article>`;
@@ -113,53 +199,96 @@
 
   let lastFocus = null;
 
-  function openModal(id) {
-    const p = findProduct(id);
-    if (!p) return;
+  function fillModal(p) {
     const soldOut = p.inStock === false;
+    const name = field(p, "name");
 
-    $("#modal-category").textContent = CATEGORIES[p.category] || "";
-    $("#modal-title").textContent = p.name;
+    $("#modal-category").textContent = categoryName(p.category);
+    $("#modal-title").textContent = name;
     $("#modal-price").innerHTML = formatPrice(p.price) + (p.oldPrice ? ` <s>${formatPrice(p.oldPrice)}</s>` : "");
-    $("#modal-desc").textContent = p.description;
+    $("#modal-desc").textContent = field(p, "description");
 
-    const specs = [["Материал", p.material], ["Камни", p.stones], ["Наличие", soldOut ? "Под заказ" : "В наличии"]];
+    const specs = [
+      [t("modal.material"), field(p, "material")],
+      [t("modal.stones"), field(p, "stones")],
+      [t("modal.stock"), soldOut ? t("modal.onOrder") : t("modal.inStock")],
+    ];
     $("#modal-specs").innerHTML = specs
       .filter(([, v]) => v)
       .map(([k, v]) => `<dt>${k}</dt><dd>${escapeHtml(v)}</dd>`)
       .join("");
 
+    $("#modal-image").alt = name;
+
+    const addBtn = $("#modal-add");
+    addBtn.dataset.add = p.id;
+    addBtn.disabled = soldOut;
+    addBtn.textContent = soldOut ? t("card.soldOut") : t("modal.add");
+
+    const orderText = soldOut
+      ? t("order.notify", { name })
+      : t("order.one", { name, price: formatPrice(p.price) });
+    $("#modal-order").href = telegramLink(orderText + "\n" + productUrl(p.id));
+    $("#modal-order").textContent = soldOut ? t("modal.notify") : t("modal.order");
+  }
+
+  function openModal(id) {
+    const p = findProduct(id);
+    if (!p) return;
+
+    state.openId = id;
+    fillModal(p);
+
     const image = $("#modal-image");
     image.src = p.images[0];
-    image.alt = p.name;
     $("#modal-thumbs").innerHTML = p.images.length > 1
       ? p.images.map((src, i) =>
           `<button class="thumb${i === 0 ? " is-active" : ""}" data-src="${src}"><img src="${src}" alt="" /></button>`).join("")
       : "";
 
-    const addBtn = $("#modal-add");
-    addBtn.dataset.add = p.id;
-    addBtn.disabled = soldOut;
-    addBtn.textContent = soldOut ? "Нет в наличии" : "В корзину";
+    if (location.hash !== "#product-" + id) history.replaceState(null, "", "#product-" + id);
 
-    const orderText = `Здравствуйте! Хочу заказать: ${p.name} (${formatPrice(p.price)})`;
-    $("#modal-order").href = telegramLink(orderText);
-    $("#modal-order").textContent = soldOut ? "Узнать о поступлении" : "Заказать в 1 клик";
-
-    lastFocus = document.activeElement;
+    if ($("#modal").hidden) lastFocus = document.activeElement;
     $("#modal").hidden = false;
     document.body.classList.add("no-scroll");
     $("#modal .modal__close").focus();
   }
 
   function closeModal() {
+    state.openId = null;
     $("#modal").hidden = true;
+    if (location.hash.startsWith("#product-")) {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
     unlockScroll();
     if (lastFocus) lastFocus.focus();
   }
 
   function unlockScroll() {
     if ($("#modal").hidden && $("#cart").hidden) document.body.classList.remove("no-scroll");
+  }
+
+  // Ссылка вида index.html#product-3 сразу открывает товар
+  function openFromHash() {
+    const match = location.hash.match(/^#product-(\d+)$/);
+    if (match && findProduct(Number(match[1]))) openModal(Number(match[1]));
+  }
+
+  async function shareProduct() {
+    if (state.openId === null) return;
+    const url = productUrl(state.openId);
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch (e) {
+      // запасной вариант для старых браузеров и http
+      const input = document.createElement("textarea");
+      input.value = url;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand("copy");
+      input.remove();
+    }
+    toast(t("modal.copied"));
   }
 
   /* ---------- Корзина ---------- */
@@ -189,7 +318,7 @@
     else state.cart.push({ id, qty: 1 });
     saveCart();
     renderCart();
-    toast(`«${p.name}» добавлен в корзину`);
+    toast(t("cart.added", { name: field(p, "name") }));
   }
 
   function changeQty(id, delta) {
@@ -204,9 +333,9 @@
   function orderMessage() {
     const lines = state.cart.map((i, n) => {
       const p = findProduct(i.id);
-      return `${n + 1}. ${p.name} × ${i.qty} — ${formatPrice(p.price * i.qty)}`;
+      return `${n + 1}. ${field(p, "name")} × ${i.qty} — ${formatPrice(p.price * i.qty)}`;
     });
-    return ["Здравствуйте! Хочу оформить заказ:", ...lines, `Итого: ${formatPrice(cartTotal())}`].join("\n");
+    return [t("order.many"), ...lines, `${t("cart.total")}: ${formatPrice(cartTotal())}`].join("\n");
   }
 
   function cartTotal() {
@@ -225,15 +354,15 @@
         <li class="cart-item">
           <img src="${p.images[0]}" alt="" />
           <div class="cart-item__info">
-            <p class="cart-item__name">${escapeHtml(p.name)}</p>
+            <p class="cart-item__name">${escapeHtml(field(p, "name"))}</p>
             <p class="cart-item__price">${formatPrice(p.price)}</p>
             <div class="qty">
-              <button data-qty="-1" data-id="${p.id}" aria-label="Уменьшить">−</button>
+              <button data-qty="-1" data-id="${p.id}" aria-label="${t("cart.less")}">−</button>
               <span>${i.qty}</span>
-              <button data-qty="1" data-id="${p.id}" aria-label="Увеличить">+</button>
+              <button data-qty="1" data-id="${p.id}" aria-label="${t("cart.more")}">+</button>
             </div>
           </div>
-          <button class="cart-item__remove" data-qty="${-i.qty}" data-id="${p.id}" aria-label="Удалить">&times;</button>
+          <button class="cart-item__remove" data-qty="${-i.qty}" data-id="${p.id}" aria-label="${t("cart.remove")}">&times;</button>
         </li>`;
     }).join("");
 
@@ -266,7 +395,6 @@
     $("#contact-telegram").href = telegramLink();
     $("#contact-phone").href = "tel:" + SHOP.phone.replace(/[^\d+]/g, "");
     $("#contact-phone").textContent = SHOP.phone;
-    $("#contact-address").textContent = SHOP.address;
     $("#year").textContent = new Date().getFullYear();
   }
 
@@ -310,6 +438,11 @@
       renderGrid();
     });
 
+    $("#lang").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-lang]");
+      if (btn) setLang(btn.dataset.lang);
+    });
+
     document.addEventListener("click", (e) => {
       const open = e.target.closest("[data-open]");
       if (open) return openModal(Number(open.dataset.open));
@@ -320,7 +453,7 @@
       const thumb = e.target.closest(".thumb");
       if (thumb) {
         $("#modal-image").src = thumb.dataset.src;
-        document.querySelectorAll(".thumb").forEach((t) => t.classList.toggle("is-active", t === thumb));
+        $$(".thumb").forEach((el) => el.classList.toggle("is-active", el === thumb));
         return;
       }
 
@@ -331,12 +464,15 @@
       if (e.target.closest("[data-cart-close]")) return closeCart();
     });
 
+    $("#modal-share").addEventListener("click", shareProduct);
     $("#cart-open").addEventListener("click", openCart);
     $("#cart-clear").addEventListener("click", () => {
       state.cart = [];
       saveCart();
       renderCart();
     });
+
+    window.addEventListener("hashchange", openFromHash);
 
     document.addEventListener("keydown", (e) => {
       if (e.key !== "Escape") return;
@@ -345,10 +481,12 @@
     });
   }
 
+  applyStaticTexts();
   renderFilters();
   renderGrid();
   renderCart();
   initContacts();
   initHeader();
   bindEvents();
+  openFromHash();
 })();

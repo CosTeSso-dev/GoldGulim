@@ -119,6 +119,25 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .nav a:hover { color: var(--text); }
 
+.lang {
+  display: flex;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+.lang button {
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.lang button.is-active { background: var(--text); color: #fff; }
+
 .cart-btn {
   position: relative;
   display: grid;
@@ -484,6 +503,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .modal__desc { margin: 0 0 28px; color: var(--muted); }
 .modal__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
 .modal__actions .btn { flex: 1 1 160px; }
+.modal__share { align-self: center; margin-top: 14px; }
 
 /* ---------- Корзина ---------- */
 
@@ -575,6 +595,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 
 @media (max-width: 720px) {
+  .header__inner { gap: 10px; }
+  .logo { font-size: 26px; }
   .burger { display: flex; }
   .nav {
     position: absolute;

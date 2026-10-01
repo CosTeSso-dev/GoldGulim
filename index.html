@@ -3,8 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ювелирный магазин</title>
-  <meta name="description" content="Ювелирные украшения: кольца, серьги, колье и браслеты." />
+  <title>Aurum — ювелирные украшения</title>
+  <meta name="description" content="Ювелирные украшения: кольца, серьги, колье и браслеты. Золото 585, серебро 925, натуральные камни." />
+  <meta name="theme-color" content="#fbf8f4" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+  <!-- Превью ссылки в Telegram, WhatsApp, соцсетях.
+       После публикации замените og:image на полный адрес: https://ваш-сайт/images/og-image.png -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aurum" />
+  <meta property="og:title" content="Aurum — ювелирные украшения" />
+  <meta property="og:description" content="Золото, серебро и натуральные камни. Каждое изделие с сертификатом." />
+  <meta property="og:image" content="images/og-image.png" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:locale:alternate" content="uz_UZ" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -15,15 +30,19 @@
     <div class="container header__inner">
       <a href="#" class="logo">Aurum</a>
       <nav class="nav" id="nav">
-        <a href="#catalog">Каталог</a>
-        <a href="#about">О нас</a>
-        <a href="#contacts">Контакты</a>
+        <a href="#catalog" data-i18n="nav.catalog">Каталог</a>
+        <a href="#about" data-i18n="nav.about">О нас</a>
+        <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
       </nav>
-      <button class="cart-btn" id="cart-open" aria-label="Корзина">
+      <div class="lang" id="lang" role="group" aria-label="Язык / Til">
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="uz">UZ</button>
+      </div>
+      <button class="cart-btn" id="cart-open" data-i18n-aria="header.cart" aria-label="Корзина">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z M9 7a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
         <span class="cart-btn__count" id="cart-count">0</span>
       </button>
-      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+      <button class="burger" id="burger" data-i18n-aria="header.menu" aria-label="Меню" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -32,56 +51,56 @@
   <main>
     <section class="hero">
       <div class="container hero__inner">
-        <p class="hero__eyebrow">Ювелирные украшения ручной работы</p>
-        <h1 class="hero__title">Украшения, которые хранят&nbsp;историю</h1>
-        <p class="hero__text">Золото, серебро и натуральные камни. Каждое изделие проходит проверку и&nbsp;поставляется с сертификатом.</p>
-        <a href="#catalog" class="btn">Смотреть каталог</a>
+        <p class="hero__eyebrow" data-i18n="hero.eyebrow">Ювелирные украшения ручной работы</p>
+        <h1 class="hero__title" data-i18n="hero.title">Украшения, которые хранят&nbsp;историю</h1>
+        <p class="hero__text" data-i18n="hero.text">Золото, серебро и натуральные камни. Каждое изделие проходит проверку и&nbsp;поставляется с сертификатом.</p>
+        <a href="#catalog" class="btn" data-i18n="hero.cta">Смотреть каталог</a>
       </div>
     </section>
 
     <section class="section" id="catalog">
       <div class="container">
-        <h2 class="section__title">Каталог</h2>
+        <h2 class="section__title" data-i18n="catalog.title">Каталог</h2>
         <div class="toolbar">
           <div class="filters" id="filters" role="tablist"></div>
           <div class="toolbar__right">
-            <input class="search" id="search" type="search" placeholder="Поиск украшений" aria-label="Поиск" />
-            <select class="sort" id="sort" aria-label="Сортировка">
-              <option value="default">По умолчанию</option>
-              <option value="price-asc">Сначала дешевле</option>
-              <option value="price-desc">Сначала дороже</option>
-              <option value="new">Сначала новинки</option>
+            <input class="search" id="search" type="search" data-i18n-placeholder="catalog.search" data-i18n-aria="catalog.search" placeholder="Поиск украшений" aria-label="Поиск украшений" />
+            <select class="sort" id="sort" data-i18n-aria="catalog.sort" aria-label="Сортировка">
+              <option value="default" data-i18n="catalog.sortDefault">По умолчанию</option>
+              <option value="price-asc" data-i18n="catalog.sortPriceAsc">Сначала дешевле</option>
+              <option value="price-desc" data-i18n="catalog.sortPriceDesc">Сначала дороже</option>
+              <option value="new" data-i18n="catalog.sortNew">Сначала новинки</option>
             </select>
           </div>
         </div>
         <div class="grid" id="grid"></div>
-        <p class="empty" id="empty" hidden>Ничего не найдено. Попробуйте изменить запрос.</p>
+        <p class="empty" id="empty" data-i18n="catalog.empty" hidden>Ничего не найдено. Попробуйте изменить запрос.</p>
       </div>
     </section>
 
     <section class="section section--alt" id="about">
       <div class="container about">
         <div>
-          <h2 class="section__title">О нас</h2>
-          <p>Мы создаём и подбираем украшения, которые хочется носить каждый день и передавать по наследству. Работаем только с сертифицированными металлами и натуральными камнями.</p>
+          <h2 class="section__title" data-i18n="about.title">О нас</h2>
+          <p data-i18n="about.text">Мы создаём и подбираем украшения, которые хочется носить каждый день и передавать по наследству. Работаем только с сертифицированными металлами и натуральными камнями.</p>
         </div>
         <ul class="features">
-          <li><strong>Сертификат</strong><span>на каждое изделие</span></li>
-          <li><strong>Проба</strong><span>585 и 925, клеймо на изделии</span></li>
-          <li><strong>Доставка</strong><span>по всей стране</span></li>
-          <li><strong>Подарочная упаковка</strong><span>бесплатно</span></li>
+          <li><strong data-i18n="about.f1">Сертификат</strong><span data-i18n="about.f1text">на каждое изделие</span></li>
+          <li><strong data-i18n="about.f2">Проба</strong><span data-i18n="about.f2text">585 и 925, клеймо на изделии</span></li>
+          <li><strong data-i18n="about.f3">Доставка</strong><span data-i18n="about.f3text">по всей стране</span></li>
+          <li><strong data-i18n="about.f4">Подарочная упаковка</strong><span data-i18n="about.f4text">бесплатно</span></li>
         </ul>
       </div>
     </section>
 
     <section class="section" id="contacts">
       <div class="container contacts">
-        <h2 class="section__title">Контакты</h2>
-        <p>Чтобы заказать украшение или задать вопрос, напишите нам:</p>
+        <h2 class="section__title" data-i18n="contacts.title">Контакты</h2>
+        <p data-i18n="contacts.text">Чтобы заказать украшение или задать вопрос, напишите нам:</p>
         <div class="contacts__links">
           <a class="btn btn--outline" id="contact-whatsapp" target="_blank" rel="noopener">WhatsApp</a>
           <a class="btn btn--outline" id="contact-telegram" target="_blank" rel="noopener">Telegram</a>
-          <a class="btn btn--outline" id="contact-phone">Позвонить</a>
+          <a class="btn btn--outline" id="contact-phone"></a>
         </div>
         <p class="contacts__address" id="contact-address"></p>
       </div>
@@ -89,14 +108,14 @@
   </main>
 
   <footer class="footer">
-    <div class="container">© <span id="year"></span> Aurum. Все права защищены.</div>
+    <div class="container">© <span id="year"></span> Aurum. <span data-i18n="footer.rights">Все права защищены.</span></div>
   </footer>
 
   <!-- Окно с подробным описанием товара -->
   <div class="modal" id="modal" hidden>
     <div class="modal__backdrop" data-close></div>
     <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal__close" data-close aria-label="Закрыть">&times;</button>
+      <button class="modal__close" data-close data-i18n-aria="modal.close" aria-label="Закрыть">&times;</button>
       <div class="modal__gallery">
         <img id="modal-image" alt="" />
         <div class="modal__thumbs" id="modal-thumbs"></div>
@@ -108,9 +127,10 @@
         <dl class="modal__specs" id="modal-specs"></dl>
         <p class="modal__desc" id="modal-desc"></p>
         <div class="modal__actions">
-          <button class="btn" id="modal-add" type="button">В корзину</button>
-          <a class="btn btn--outline" id="modal-order" target="_blank" rel="noopener">Заказать в 1 клик</a>
+          <button class="btn" id="modal-add" type="button"></button>
+          <a class="btn btn--outline" id="modal-order" target="_blank" rel="noopener"></a>
         </div>
+        <button class="link-btn modal__share" id="modal-share" type="button" data-i18n="modal.share">Скопировать ссылку</button>
       </div>
     </div>
   </div>
@@ -120,16 +140,16 @@
     <div class="drawer__backdrop" data-cart-close></div>
     <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
       <div class="drawer__head">
-        <h3 id="cart-title">Корзина</h3>
-        <button class="modal__close" data-cart-close aria-label="Закрыть">&times;</button>
+        <h3 id="cart-title" data-i18n="cart.title">Корзина</h3>
+        <button class="modal__close" data-cart-close data-i18n-aria="modal.close" aria-label="Закрыть">&times;</button>
       </div>
       <ul class="cart-list" id="cart-list"></ul>
-      <p class="empty" id="cart-empty">Корзина пуста</p>
+      <p class="empty" id="cart-empty" data-i18n="cart.empty">Корзина пуста</p>
       <div class="drawer__foot" id="cart-foot">
-        <div class="cart-total"><span>Итого</span><strong id="cart-total"></strong></div>
-        <a class="btn btn--block" id="cart-telegram" target="_blank" rel="noopener">Оформить в Telegram</a>
-        <a class="btn btn--outline btn--block" id="cart-whatsapp" target="_blank" rel="noopener">Оформить в WhatsApp</a>
-        <button class="link-btn" id="cart-clear" type="button">Очистить корзину</button>
+        <div class="cart-total"><span data-i18n="cart.total">Итого</span><strong id="cart-total"></strong></div>
+        <a class="btn btn--block" id="cart-telegram" target="_blank" rel="noopener" data-i18n="cart.telegram">Оформить в Telegram</a>
+        <a class="btn btn--outline btn--block" id="cart-whatsapp" target="_blank" rel="noopener" data-i18n="cart.whatsapp">Оформить в WhatsApp</a>
+        <button class="link-btn" id="cart-clear" type="button" data-i18n="cart.clear">Очистить корзину</button>
       </div>
     </aside>
   </div>
@@ -137,6 +157,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
 </body>
