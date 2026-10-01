@@ -23,6 +23,8 @@ import time
 import urllib.request
 from pathlib import Path
 
+from bump_version import bump as bump_version
+
 ROOT = Path(__file__).resolve().parent.parent
 PRODUCTS_JS = ROOT / "js" / "products.js"
 PHOTOS_DIR = ROOT / "images" / "products"
@@ -325,6 +327,7 @@ def main():
         p["id"] = n
 
     PRODUCTS_JS.write_text(render(products), "utf-8")
+    bump_version()  # чтобы браузеры покупателей сразу увидели новый каталог
     with_photo = sum(1 for p in products if p["images"][0].split("/")[-1].startswith("tg-"))
     print(f"Товаров в каталоге: {len(products)}, из них с фото: {with_photo}")
     if not photos_enabled and with_photo < len(products):
