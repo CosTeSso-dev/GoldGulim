@@ -10,7 +10,7 @@
   --sale: #b5473a;
   --radius: 14px;
   --shadow: 0 10px 30px rgba(60, 44, 20, 0.08);
-  --serif: "Cormorant Garamond", Georgia, serif;
+  --serif: "Cormorant Garamond", "EB Garamond", Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
