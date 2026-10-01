@@ -3,8 +3,8 @@
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
-  const CART_KEY = "granat-cart";
-  const LANG_KEY = "granat-lang";
+  const CART_KEY = "opalia-cart";
+  const LANG_KEY = "opalia-lang";
   const PAGE_SIZE = 12;
   const LANGS = Object.keys(I18N);
 
