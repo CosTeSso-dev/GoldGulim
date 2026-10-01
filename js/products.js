@@ -3,9 +3,11 @@
  * ----------------
  * Каталог собран из Telegram-канала скриптом tools/import_telegram.py.
  * Его можно править и вручную. Поля товара:
- *   id          — уникальный номер
+ *   id          — внутренний номер (может меняться при импорте)
+ *   lot         — номер лота, который видят покупатели. Не меняется:
+ *                 новые изделия получают следующий свободный номер
  *   tg          — номер поста в Telegram-канале (по нему скрипт
- *                 сохраняет цены при повторном импорте)
+ *                 сохраняет лоты и цены при повторном импорте)
  *   name        — название
  *   category    — одна из категорий из списка CATEGORIES ниже
  *   price       — цена в сумах (число, без пробелов), например 3500000.
@@ -37,6 +39,7 @@ const CATEGORIES = {
 const PRODUCTS = [
   {
     id: 1,
+    lot: 150,
     tg: 631,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -58,6 +61,7 @@ const PRODUCTS = [
   },
   {
     id: 2,
+    lot: 149,
     tg: 630,
     name: "Цепочка",
     category: "chains",
@@ -76,6 +80,7 @@ const PRODUCTS = [
   },
   {
     id: 3,
+    lot: 148,
     tg: 628,
     name: "Часы мужские",
     category: "watches",
@@ -94,6 +99,7 @@ const PRODUCTS = [
   },
   {
     id: 4,
+    lot: 147,
     tg: 627,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -115,6 +121,7 @@ const PRODUCTS = [
   },
   {
     id: 5,
+    lot: 146,
     tg: 626,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -136,6 +143,7 @@ const PRODUCTS = [
   },
   {
     id: 6,
+    lot: 145,
     tg: 625,
     name: "Кулон",
     category: "pendants",
@@ -153,6 +161,7 @@ const PRODUCTS = [
   },
   {
     id: 7,
+    lot: 144,
     tg: 624,
     name: "Серьги «Союз»",
     category: "earrings",
@@ -171,6 +180,7 @@ const PRODUCTS = [
   },
   {
     id: 8,
+    lot: 143,
     tg: 623,
     name: "Комплект «Союз»",
     category: "sets",
@@ -189,6 +199,7 @@ const PRODUCTS = [
   },
   {
     id: 9,
+    lot: 142,
     tg: 621,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -210,6 +221,7 @@ const PRODUCTS = [
   },
   {
     id: 10,
+    lot: 141,
     tg: 620,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -231,6 +243,7 @@ const PRODUCTS = [
   },
   {
     id: 11,
+    lot: 140,
     tg: 613,
     name: "Серьги «Союз»",
     category: "earrings",
@@ -249,6 +262,7 @@ const PRODUCTS = [
   },
   {
     id: 12,
+    lot: 139,
     tg: 612,
     name: "Серьги",
     category: "earrings",
@@ -269,6 +283,7 @@ const PRODUCTS = [
   },
   {
     id: 13,
+    lot: 138,
     tg: 609,
     name: "Серьги «Союз»",
     category: "earrings",
@@ -287,6 +302,7 @@ const PRODUCTS = [
   },
   {
     id: 14,
+    lot: 137,
     tg: 608,
     name: "Серьги",
     category: "earrings",
@@ -308,6 +324,7 @@ const PRODUCTS = [
   },
   {
     id: 15,
+    lot: 136,
     tg: 607,
     name: "Браслет",
     category: "chains",
@@ -326,6 +343,7 @@ const PRODUCTS = [
   },
   {
     id: 16,
+    lot: 135,
     tg: 602,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -346,6 +364,7 @@ const PRODUCTS = [
   },
   {
     id: 17,
+    lot: 134,
     tg: 568,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -366,6 +385,7 @@ const PRODUCTS = [
   },
   {
     id: 18,
+    lot: 133,
     tg: 567,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -386,6 +406,7 @@ const PRODUCTS = [
   },
   {
     id: 19,
+    lot: 132,
     tg: 548,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -407,6 +428,7 @@ const PRODUCTS = [
   },
   {
     id: 20,
+    lot: 131,
     tg: 547,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -428,6 +450,7 @@ const PRODUCTS = [
   },
   {
     id: 21,
+    lot: 130,
     tg: 546,
     name: "Комплект",
     category: "sets",
@@ -446,6 +469,7 @@ const PRODUCTS = [
   },
   {
     id: 22,
+    lot: 129,
     tg: 372,
     name: "Серьги «Бирюза»",
     category: "earrings",
@@ -467,6 +491,7 @@ const PRODUCTS = [
   },
   {
     id: 23,
+    lot: 128,
     tg: 370,
     name: "Серьги «Бадам»",
     category: "earrings",
@@ -488,6 +513,7 @@ const PRODUCTS = [
   },
   {
     id: 24,
+    lot: 127,
     tg: 368,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -509,6 +535,7 @@ const PRODUCTS = [
   },
   {
     id: 25,
+    lot: 126,
     tg: 366,
     name: "Комплект с бриллиантами «Бахча сарай»",
     category: "sets",
@@ -530,6 +557,7 @@ const PRODUCTS = [
   },
   {
     id: 26,
+    lot: 125,
     tg: 364,
     name: "Комплект с бриллиантами «Ромашка»",
     category: "sets",
@@ -551,6 +579,7 @@ const PRODUCTS = [
   },
   {
     id: 27,
+    lot: 124,
     tg: 362,
     name: "Кольцо «Сказка»",
     category: "rings",
@@ -572,6 +601,7 @@ const PRODUCTS = [
   },
   {
     id: 28,
+    lot: 123,
     tg: 360,
     name: "Кольцо",
     category: "rings",
@@ -593,6 +623,7 @@ const PRODUCTS = [
   },
   {
     id: 29,
+    lot: 122,
     tg: 353,
     name: "Мужской перстень",
     category: "men",
@@ -611,6 +642,7 @@ const PRODUCTS = [
   },
   {
     id: 30,
+    lot: 121,
     tg: 351,
     name: "Мужской перстень",
     category: "men",
@@ -629,6 +661,7 @@ const PRODUCTS = [
   },
   {
     id: 31,
+    lot: 120,
     tg: 349,
     name: "Мужской перстень",
     category: "men",
@@ -647,6 +680,7 @@ const PRODUCTS = [
   },
   {
     id: 32,
+    lot: 119,
     tg: 347,
     name: "Мужской перстень",
     category: "men",
@@ -665,6 +699,7 @@ const PRODUCTS = [
   },
   {
     id: 33,
+    lot: 118,
     tg: 345,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -683,6 +718,7 @@ const PRODUCTS = [
   },
   {
     id: 34,
+    lot: 117,
     tg: 343,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -701,6 +737,7 @@ const PRODUCTS = [
   },
   {
     id: 35,
+    lot: 116,
     tg: 341,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -719,6 +756,7 @@ const PRODUCTS = [
   },
   {
     id: 36,
+    lot: 115,
     tg: 339,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -737,6 +775,7 @@ const PRODUCTS = [
   },
   {
     id: 37,
+    lot: 114,
     tg: 337,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -755,6 +794,7 @@ const PRODUCTS = [
   },
   {
     id: 38,
+    lot: 113,
     tg: 335,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -773,6 +813,7 @@ const PRODUCTS = [
   },
   {
     id: 39,
+    lot: 112,
     tg: 333,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -791,6 +832,7 @@ const PRODUCTS = [
   },
   {
     id: 40,
+    lot: 111,
     tg: 331,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -809,6 +851,7 @@ const PRODUCTS = [
   },
   {
     id: 41,
+    lot: 110,
     tg: 329,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -827,6 +870,7 @@ const PRODUCTS = [
   },
   {
     id: 42,
+    lot: 109,
     tg: 327,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -845,6 +889,7 @@ const PRODUCTS = [
   },
   {
     id: 43,
+    lot: 108,
     tg: 325,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -863,6 +908,7 @@ const PRODUCTS = [
   },
   {
     id: 44,
+    lot: 107,
     tg: 323,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -881,6 +927,7 @@ const PRODUCTS = [
   },
   {
     id: 45,
+    lot: 106,
     tg: 321,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -899,6 +946,7 @@ const PRODUCTS = [
   },
   {
     id: 46,
+    lot: 105,
     tg: 319,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -917,6 +965,7 @@ const PRODUCTS = [
   },
   {
     id: 47,
+    lot: 104,
     tg: 317,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -935,6 +984,7 @@ const PRODUCTS = [
   },
   {
     id: 48,
+    lot: 103,
     tg: 315,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -953,6 +1003,7 @@ const PRODUCTS = [
   },
   {
     id: 49,
+    lot: 102,
     tg: 313,
     name: "Обручальное кольцо",
     category: "wedding",
@@ -971,6 +1022,7 @@ const PRODUCTS = [
   },
   {
     id: 50,
+    lot: 101,
     tg: 311,
     name: "Кольцо",
     category: "rings",
@@ -989,6 +1041,7 @@ const PRODUCTS = [
   },
   {
     id: 51,
+    lot: 100,
     tg: 309,
     name: "Кольцо",
     category: "rings",
@@ -1010,6 +1063,7 @@ const PRODUCTS = [
   },
   {
     id: 52,
+    lot: 99,
     tg: 307,
     name: "Кольцо",
     category: "rings",
@@ -1028,6 +1082,7 @@ const PRODUCTS = [
   },
   {
     id: 53,
+    lot: 98,
     tg: 305,
     name: "Кольцо",
     category: "rings",
@@ -1049,6 +1104,7 @@ const PRODUCTS = [
   },
   {
     id: 54,
+    lot: 97,
     tg: 303,
     name: "Кольцо",
     category: "rings",
@@ -1067,6 +1123,7 @@ const PRODUCTS = [
   },
   {
     id: 55,
+    lot: 96,
     tg: 301,
     name: "Кольцо",
     category: "rings",
@@ -1085,6 +1142,7 @@ const PRODUCTS = [
   },
   {
     id: 56,
+    lot: 95,
     tg: 299,
     name: "Кольцо",
     category: "rings",
@@ -1106,6 +1164,7 @@ const PRODUCTS = [
   },
   {
     id: 57,
+    lot: 94,
     tg: 297,
     name: "Кольцо",
     category: "rings",
@@ -1124,6 +1183,7 @@ const PRODUCTS = [
   },
   {
     id: 58,
+    lot: 93,
     tg: 295,
     name: "Кольцо",
     category: "rings",
@@ -1145,6 +1205,7 @@ const PRODUCTS = [
   },
   {
     id: 59,
+    lot: 92,
     tg: 293,
     name: "Кольцо",
     category: "rings",
@@ -1166,6 +1227,7 @@ const PRODUCTS = [
   },
   {
     id: 60,
+    lot: 91,
     tg: 291,
     name: "Кольцо",
     category: "rings",
@@ -1184,6 +1246,7 @@ const PRODUCTS = [
   },
   {
     id: 61,
+    lot: 90,
     tg: 289,
     name: "Кольцо",
     category: "rings",
@@ -1202,6 +1265,7 @@ const PRODUCTS = [
   },
   {
     id: 62,
+    lot: 89,
     tg: 287,
     name: "Кольцо",
     category: "rings",
@@ -1220,6 +1284,7 @@ const PRODUCTS = [
   },
   {
     id: 63,
+    lot: 88,
     tg: 285,
     name: "Кольцо",
     category: "rings",
@@ -1238,6 +1303,7 @@ const PRODUCTS = [
   },
   {
     id: 64,
+    lot: 87,
     tg: 283,
     name: "Кольцо",
     category: "rings",
@@ -1256,6 +1322,7 @@ const PRODUCTS = [
   },
   {
     id: 65,
+    lot: 86,
     tg: 281,
     name: "Кольцо",
     category: "rings",
@@ -1274,6 +1341,7 @@ const PRODUCTS = [
   },
   {
     id: 66,
+    lot: 85,
     tg: 279,
     name: "Кольцо",
     category: "rings",
@@ -1292,6 +1360,7 @@ const PRODUCTS = [
   },
   {
     id: 67,
+    lot: 84,
     tg: 277,
     name: "Кольцо",
     category: "rings",
@@ -1310,6 +1379,7 @@ const PRODUCTS = [
   },
   {
     id: 68,
+    lot: 83,
     tg: 275,
     name: "Кольцо",
     category: "rings",
@@ -1328,6 +1398,7 @@ const PRODUCTS = [
   },
   {
     id: 69,
+    lot: 82,
     tg: 273,
     name: "Кольцо",
     category: "rings",
@@ -1346,6 +1417,7 @@ const PRODUCTS = [
   },
   {
     id: 70,
+    lot: 81,
     tg: 271,
     name: "Кольцо",
     category: "rings",
@@ -1364,6 +1436,7 @@ const PRODUCTS = [
   },
   {
     id: 71,
+    lot: 80,
     tg: 269,
     name: "Кулон",
     category: "pendants",
@@ -1382,6 +1455,7 @@ const PRODUCTS = [
   },
   {
     id: 72,
+    lot: 79,
     tg: 266,
     name: "Кулон",
     category: "pendants",
@@ -1400,6 +1474,7 @@ const PRODUCTS = [
   },
   {
     id: 73,
+    lot: 78,
     tg: 264,
     name: "Кулон",
     category: "pendants",
@@ -1418,6 +1493,7 @@ const PRODUCTS = [
   },
   {
     id: 74,
+    lot: 77,
     tg: 262,
     name: "Кулон",
     category: "pendants",
@@ -1436,6 +1512,7 @@ const PRODUCTS = [
   },
   {
     id: 75,
+    lot: 76,
     tg: 260,
     name: "Кулон",
     category: "pendants",
@@ -1454,6 +1531,7 @@ const PRODUCTS = [
   },
   {
     id: 76,
+    lot: 75,
     tg: 258,
     name: "Кулон",
     category: "pendants",
@@ -1472,6 +1550,7 @@ const PRODUCTS = [
   },
   {
     id: 77,
+    lot: 74,
     tg: 256,
     name: "Кулон",
     category: "pendants",
@@ -1490,6 +1569,7 @@ const PRODUCTS = [
   },
   {
     id: 78,
+    lot: 73,
     tg: 254,
     name: "Кулон",
     category: "pendants",
@@ -1508,6 +1588,7 @@ const PRODUCTS = [
   },
   {
     id: 79,
+    lot: 72,
     tg: 252,
     name: "Кулон",
     category: "pendants",
@@ -1526,6 +1607,7 @@ const PRODUCTS = [
   },
   {
     id: 80,
+    lot: 71,
     tg: 250,
     name: "Кулон",
     category: "pendants",
@@ -1544,6 +1626,7 @@ const PRODUCTS = [
   },
   {
     id: 81,
+    lot: 70,
     tg: 247,
     name: "Браслет",
     category: "chains",
@@ -1562,6 +1645,7 @@ const PRODUCTS = [
   },
   {
     id: 82,
+    lot: 69,
     tg: 244,
     name: "Браслет",
     category: "chains",
@@ -1580,6 +1664,7 @@ const PRODUCTS = [
   },
   {
     id: 83,
+    lot: 68,
     tg: 242,
     name: "Часы",
     category: "watches",
@@ -1598,6 +1683,7 @@ const PRODUCTS = [
   },
   {
     id: 84,
+    lot: 67,
     tg: 240,
     name: "Цепочка «Мидас»",
     category: "chains",
@@ -1616,6 +1702,7 @@ const PRODUCTS = [
   },
   {
     id: 85,
+    lot: 66,
     tg: 238,
     name: "Цепочка",
     category: "chains",
@@ -1634,6 +1721,7 @@ const PRODUCTS = [
   },
   {
     id: 86,
+    lot: 65,
     tg: 236,
     name: "Цепочка «Колокольчик»",
     category: "chains",
@@ -1652,6 +1740,7 @@ const PRODUCTS = [
   },
   {
     id: 87,
+    lot: 64,
     tg: 233,
     name: "Браслет",
     category: "chains",
@@ -1670,6 +1759,7 @@ const PRODUCTS = [
   },
   {
     id: 88,
+    lot: 63,
     tg: 230,
     name: "Комплект с бриллиантами «Guldaste»",
     category: "sets",
@@ -1691,6 +1781,7 @@ const PRODUCTS = [
   },
   {
     id: 89,
+    lot: 62,
     tg: 227,
     name: "Комплект с бриллиантами «Звёздочка»",
     category: "sets",
@@ -1712,6 +1803,7 @@ const PRODUCTS = [
   },
   {
     id: 90,
+    lot: 61,
     tg: 224,
     name: "Комплект с бриллиантами «Ткач»",
     category: "sets",
@@ -1733,6 +1825,7 @@ const PRODUCTS = [
   },
   {
     id: 91,
+    lot: 60,
     tg: 221,
     name: "Комплект с бриллиантами «Guldaste»",
     category: "sets",
@@ -1754,6 +1847,7 @@ const PRODUCTS = [
   },
   {
     id: 92,
+    lot: 59,
     tg: 218,
     name: "Комплект с бриллиантами «Корона»",
     category: "sets",
@@ -1775,6 +1869,7 @@ const PRODUCTS = [
   },
   {
     id: 93,
+    lot: 58,
     tg: 215,
     name: "Комплект с бриллиантами «Бахча сарай»",
     category: "sets",
@@ -1796,6 +1891,7 @@ const PRODUCTS = [
   },
   {
     id: 94,
+    lot: 57,
     tg: 212,
     name: "Комплект с бриллиантами «Ободок»",
     category: "sets",
@@ -1817,6 +1913,7 @@ const PRODUCTS = [
   },
   {
     id: 95,
+    lot: 56,
     tg: 209,
     name: "Комплект с бриллиантами «Висячка»",
     category: "sets",
@@ -1838,6 +1935,7 @@ const PRODUCTS = [
   },
   {
     id: 96,
+    lot: 55,
     tg: 206,
     name: "Комплект с бриллиантами «Gulim»",
     category: "sets",
@@ -1859,6 +1957,7 @@ const PRODUCTS = [
   },
   {
     id: 97,
+    lot: 54,
     tg: 203,
     name: "Комплект с бриллиантами «Пламя»",
     category: "sets",
@@ -1880,6 +1979,7 @@ const PRODUCTS = [
   },
   {
     id: 98,
+    lot: 53,
     tg: 200,
     name: "Комплект с бриллиантами «Шахмат»",
     category: "sets",
@@ -1901,6 +2001,7 @@ const PRODUCTS = [
   },
   {
     id: 99,
+    lot: 52,
     tg: 197,
     name: "Комплект с бриллиантами «Ободок»",
     category: "sets",
@@ -1922,6 +2023,7 @@ const PRODUCTS = [
   },
   {
     id: 100,
+    lot: 51,
     tg: 194,
     name: "Комплект с бриллиантами «Тарелка»",
     category: "sets",
@@ -1943,6 +2045,7 @@ const PRODUCTS = [
   },
   {
     id: 101,
+    lot: 50,
     tg: 191,
     name: "Комплект с бриллиантами «9 go'zal»",
     category: "sets",
@@ -1964,6 +2067,7 @@ const PRODUCTS = [
   },
   {
     id: 102,
+    lot: 49,
     tg: 188,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -1985,6 +2089,7 @@ const PRODUCTS = [
   },
   {
     id: 103,
+    lot: 48,
     tg: 185,
     name: "Комплект с бриллиантами «Нежный»",
     category: "sets",
@@ -2006,6 +2111,7 @@ const PRODUCTS = [
   },
   {
     id: 104,
+    lot: 47,
     tg: 182,
     name: "Комплект с бриллиантами «Розочка»",
     category: "sets",
@@ -2027,6 +2133,7 @@ const PRODUCTS = [
   },
   {
     id: 105,
+    lot: 46,
     tg: 179,
     name: "Комплект с бриллиантами «Виноград»",
     category: "sets",
@@ -2048,6 +2155,7 @@ const PRODUCTS = [
   },
   {
     id: 106,
+    lot: 45,
     tg: 176,
     name: "Комплект с бриллиантами «Бай хатын»",
     category: "sets",
@@ -2069,6 +2177,7 @@ const PRODUCTS = [
   },
   {
     id: 107,
+    lot: 44,
     tg: 173,
     name: "Комплект «Золотой»",
     category: "sets",
@@ -2090,6 +2199,7 @@ const PRODUCTS = [
   },
   {
     id: 108,
+    lot: 43,
     tg: 170,
     name: "Комплект с бриллиантами «Салют»",
     category: "sets",
@@ -2111,6 +2221,7 @@ const PRODUCTS = [
   },
   {
     id: 109,
+    lot: 42,
     tg: 167,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -2132,6 +2243,7 @@ const PRODUCTS = [
   },
   {
     id: 110,
+    lot: 41,
     tg: 164,
     name: "Комплект с бриллиантами «Мадонна»",
     category: "sets",
@@ -2153,6 +2265,7 @@ const PRODUCTS = [
   },
   {
     id: 111,
+    lot: 40,
     tg: 161,
     name: "Комплект с бриллиантами «7 красавиц»",
     category: "sets",
@@ -2174,6 +2287,7 @@ const PRODUCTS = [
   },
   {
     id: 112,
+    lot: 39,
     tg: 158,
     name: "Комплект с бриллиантами «Бахчасарай квадрат»",
     category: "sets",
@@ -2195,6 +2309,7 @@ const PRODUCTS = [
   },
   {
     id: 113,
+    lot: 38,
     tg: 155,
     name: "Комплект с бриллиантами «Галстук»",
     category: "sets",
@@ -2216,6 +2331,7 @@ const PRODUCTS = [
   },
   {
     id: 114,
+    lot: 37,
     tg: 152,
     name: "Комплект с бриллиантами «Большая розочка»",
     category: "sets",
@@ -2237,6 +2353,7 @@ const PRODUCTS = [
   },
   {
     id: 115,
+    lot: 36,
     tg: 149,
     name: "Комплект с бриллиантами «Чархпалак»",
     category: "sets",
@@ -2258,6 +2375,7 @@ const PRODUCTS = [
   },
   {
     id: 116,
+    lot: 35,
     tg: 146,
     name: "Комплект с бриллиантами «Бантик»",
     category: "sets",
@@ -2279,6 +2397,7 @@ const PRODUCTS = [
   },
   {
     id: 117,
+    lot: 34,
     tg: 143,
     name: "Комплект с бриллиантами «Вишня»",
     category: "sets",
@@ -2300,6 +2419,7 @@ const PRODUCTS = [
   },
   {
     id: 118,
+    lot: 33,
     tg: 140,
     name: "Комплект с бриллиантами",
     category: "sets",
@@ -2321,6 +2441,7 @@ const PRODUCTS = [
   },
   {
     id: 119,
+    lot: 32,
     tg: 137,
     name: "Комплект «Поцелуй»",
     category: "sets",
@@ -2339,6 +2460,7 @@ const PRODUCTS = [
   },
   {
     id: 120,
+    lot: 31,
     tg: 135,
     name: "Серьги «Шарик»",
     category: "earrings",
@@ -2357,6 +2479,7 @@ const PRODUCTS = [
   },
   {
     id: 121,
+    lot: 30,
     tg: 133,
     name: "Серьги «Ромбик»",
     category: "earrings",
@@ -2375,6 +2498,7 @@ const PRODUCTS = [
   },
   {
     id: 122,
+    lot: 29,
     tg: 131,
     name: "Серьги",
     category: "earrings",
@@ -2393,6 +2517,7 @@ const PRODUCTS = [
   },
   {
     id: 123,
+    lot: 28,
     tg: 129,
     name: "Серьги",
     category: "earrings",
@@ -2414,6 +2539,7 @@ const PRODUCTS = [
   },
   {
     id: 124,
+    lot: 27,
     tg: 127,
     name: "Серьги «Капуста»",
     category: "earrings",
@@ -2432,6 +2558,7 @@ const PRODUCTS = [
   },
   {
     id: 125,
+    lot: 26,
     tg: 125,
     name: "Серьги «Висячие фионит»",
     category: "earrings",
@@ -2453,6 +2580,7 @@ const PRODUCTS = [
   },
   {
     id: 126,
+    lot: 25,
     tg: 123,
     name: "Серьги",
     category: "earrings",
@@ -2471,6 +2599,7 @@ const PRODUCTS = [
   },
   {
     id: 127,
+    lot: 24,
     tg: 121,
     name: "Серьги «Труба»",
     category: "earrings",
@@ -2489,6 +2618,7 @@ const PRODUCTS = [
   },
   {
     id: 128,
+    lot: 23,
     tg: 119,
     name: "Серьги «Подушка»",
     category: "earrings",
@@ -2507,6 +2637,7 @@ const PRODUCTS = [
   },
   {
     id: 129,
+    lot: 22,
     tg: 117,
     name: "Серьги «Ромбик»",
     category: "earrings",
@@ -2525,6 +2656,7 @@ const PRODUCTS = [
   },
   {
     id: 130,
+    lot: 21,
     tg: 115,
     name: "Серьги",
     category: "earrings",
@@ -2546,6 +2678,7 @@ const PRODUCTS = [
   },
   {
     id: 131,
+    lot: 20,
     tg: 113,
     name: "Серьги «Неспелые гранаты»",
     category: "earrings",
@@ -2567,6 +2700,7 @@ const PRODUCTS = [
   },
   {
     id: 132,
+    lot: 19,
     tg: 111,
     name: "Серьги «Лунный камень»",
     category: "earrings",
@@ -2588,6 +2722,7 @@ const PRODUCTS = [
   },
   {
     id: 133,
+    lot: 18,
     tg: 109,
     name: "Серьги «Бахча сарай»",
     category: "earrings",
@@ -2606,6 +2741,7 @@ const PRODUCTS = [
   },
   {
     id: 134,
+    lot: 17,
     tg: 107,
     name: "Серьги «Шарик»",
     category: "earrings",
@@ -2624,6 +2760,7 @@ const PRODUCTS = [
   },
   {
     id: 135,
+    lot: 16,
     tg: 105,
     name: "Серьги «Фионит»",
     category: "earrings",
@@ -2645,6 +2782,7 @@ const PRODUCTS = [
   },
   {
     id: 136,
+    lot: 15,
     tg: 102,
     name: "Серьги «Поцелуй детский»",
     category: "earrings",
@@ -2663,6 +2801,7 @@ const PRODUCTS = [
   },
   {
     id: 137,
+    lot: 14,
     tg: 100,
     name: "Серьги «Рубин»",
     category: "earrings",
@@ -2684,6 +2823,7 @@ const PRODUCTS = [
   },
   {
     id: 138,
+    lot: 13,
     tg: 98,
     name: "Серьги «Груша»",
     category: "earrings",
@@ -2702,6 +2842,7 @@ const PRODUCTS = [
   },
   {
     id: 139,
+    lot: 12,
     tg: 96,
     name: "Серьги «Александрит»",
     category: "earrings",
@@ -2723,6 +2864,7 @@ const PRODUCTS = [
   },
   {
     id: 140,
+    lot: 11,
     tg: 94,
     name: "Серьги «Фионит-розочка»",
     category: "earrings",
@@ -2744,6 +2886,7 @@ const PRODUCTS = [
   },
   {
     id: 141,
+    lot: 10,
     tg: 92,
     name: "Серьги «Бирюза»",
     category: "earrings",
@@ -2765,6 +2908,7 @@ const PRODUCTS = [
   },
   {
     id: 142,
+    lot: 9,
     tg: 90,
     name: "Серьги «Бирюза»",
     category: "earrings",
@@ -2786,6 +2930,7 @@ const PRODUCTS = [
   },
   {
     id: 143,
+    lot: 8,
     tg: 88,
     name: "Серьги «Бирюза»",
     category: "earrings",
@@ -2807,6 +2952,7 @@ const PRODUCTS = [
   },
   {
     id: 144,
+    lot: 7,
     tg: 86,
     name: "Серьги «Бирюза»",
     category: "earrings",
@@ -2828,6 +2974,7 @@ const PRODUCTS = [
   },
   {
     id: 145,
+    lot: 6,
     tg: 84,
     name: "Серьги «Жалпак»",
     category: "earrings",
@@ -2846,6 +2993,7 @@ const PRODUCTS = [
   },
   {
     id: 146,
+    lot: 5,
     tg: 82,
     name: "Серьги",
     category: "earrings",
@@ -2867,6 +3015,7 @@ const PRODUCTS = [
   },
   {
     id: 147,
+    lot: 4,
     tg: 80,
     name: "Серьги «Семья»",
     category: "earrings",
@@ -2888,6 +3037,7 @@ const PRODUCTS = [
   },
   {
     id: 148,
+    lot: 3,
     tg: 78,
     name: "Серьги «Семья»",
     category: "earrings",
@@ -2909,6 +3059,7 @@ const PRODUCTS = [
   },
   {
     id: 149,
+    lot: 2,
     tg: 76,
     name: "Серьги «Жалпак»",
     category: "earrings",
@@ -2927,6 +3078,7 @@ const PRODUCTS = [
   },
   {
     id: 150,
+    lot: 1,
     tg: 74,
     name: "Серьги",
     category: "earrings",

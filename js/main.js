@@ -3,7 +3,7 @@
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
-  const CART_KEY = "opalia-cart";
+  const CART_KEY = "opalia-cart-v2"; // в корзине — номера лотов
   const LANG_KEY = "opalia-lang";
   const PAGE_SIZE = 12;
   const LANGS = Object.keys(I18N);
@@ -143,7 +143,21 @@
   }
 
   function findProduct(id) {
-    return PRODUCTS.find((p) => p.id === id);
+    return PRODUCTS.find((p) => lotOf(p) === id);
+  }
+
+  // Номер лота — постоянный номер изделия, по нему работают корзина и ссылки
+  function lotOf(p) {
+    return p.lot ?? p.id;
+  }
+
+  function lotLabel(p) {
+    return `${t("lot")} №${lotOf(p)}`;
+  }
+
+  // «Лот №5 — Серьги «Бирюза»» — так изделие называется в сообщениях продавцу
+  function lotTitle(p) {
+    return `${lotLabel(p)} — ${field(p, "name")}`;
   }
 
   function telegramLink(text) {
@@ -155,7 +169,7 @@
   }
 
   function productUrl(id) {
-    return location.origin + location.pathname + "?lang=" + state.lang + "#product-" + id;
+    return location.origin + location.pathname + "?lang=" + state.lang + "#lot-" + id;
   }
 
   let toastTimer;
@@ -180,6 +194,9 @@
 
   function visibleProducts() {
     const q = normalize(state.query.trim());
+    // «5», «№5», «лот 5», «lot 5» — ищем изделие с этим номером лота
+    const lotQuery = q.match(/^(?:лот|lot)?\s*№?\s*(\d+)$/);
+    if (lotQuery) return PRODUCTS.filter((p) => lotOf(p) === Number(lotQuery[1]));
     let list = PRODUCTS.filter((p) => {
       if (state.category !== "all" && p.category !== state.category) return false;
       if (!q) return true;
@@ -213,20 +230,21 @@
     ].join("");
 
     return `
-      <article class="card${soldOut ? " is-soldout" : ""}" data-id="${p.id}">
-        <button class="card__media" data-open="${p.id}" aria-label="${escapeHtml(t("card.more", { name: field(p, "name") }))}">
+      <article class="card${soldOut ? " is-soldout" : ""}" data-id="${lotOf(p)}">
+        <button class="card__media" data-open="${lotOf(p)}" aria-label="${escapeHtml(t("card.more", { name: field(p, "name") }))}">
           <img src="${p.images[0]}" alt="${name}" loading="lazy" />
           <div class="card__badges">${badges}</div>
+          <span class="card__lot">№${lotOf(p)}</span>
         </button>
         <div class="card__body">
           <p class="card__category">${escapeHtml(categoryName(p.category))}</p>
-          <h3 class="card__title"><button data-open="${p.id}">${name}</button></h3>
+          <h3 class="card__title"><button data-open="${lotOf(p)}">${name}</button></h3>
           <p class="card__material">${escapeHtml(details.join(" · "))}</p>
           <div class="card__footer">
             <p class="card__price">
               ${priceHtml(p, "\n")}
             </p>
-            <button class="card__add" data-add="${p.id}" ${soldOut ? "disabled" : ""} aria-label="${t("card.add")}">+</button>
+            <button class="card__add" data-add="${lotOf(p)}" ${soldOut ? "disabled" : ""} aria-label="${t("card.add")}">+</button>
           </div>
         </div>
       </article>`;
@@ -255,7 +273,7 @@
     const soldOut = p.inStock === false;
     const name = field(p, "name");
 
-    $("#modal-category").textContent = categoryName(p.category);
+    $("#modal-category").textContent = `${categoryName(p.category)} · ${lotLabel(p)}`;
     $("#modal-title").textContent = name;
     $("#modal-price").innerHTML = priceHtml(p, " ");
     $("#modal-desc").textContent = field(p, "description") || "";
@@ -275,16 +293,24 @@
     $("#modal-image").alt = name;
 
     const addBtn = $("#modal-add");
-    addBtn.dataset.add = p.id;
+    addBtn.dataset.add = lotOf(p);
     addBtn.disabled = soldOut;
     addBtn.textContent = soldOut ? t("card.soldOut") : t("modal.add");
 
+    const title = lotTitle(p);
+    const priceText = hasPrice(p) ? formatPrice(p.price) : t("card.priceOnRequest");
     const orderText = soldOut
-      ? t("order.notify", { name })
+      ? t("order.notify", { name: title })
       : hasPrice(p)
-        ? t("order.one", { name, price: formatPrice(p.price) })
-        : t("order.ask", { name });
-    $("#modal-order").href = telegramLink(orderText + "\n" + productUrl(p.id));
+        ? t("order.one", { name: title, price: priceText })
+        : t("order.ask", { name: title });
+    $("#modal-order").href = telegramLink(orderText + "\n" + productUrl(lotOf(p)));
+
+    const offer = $("#modal-offer");
+    offer.hidden = soldOut || !SHOP.telegram;
+    offer.textContent = t("modal.offer");
+    // без ссылки в конце: покупатель сразу дописывает свою сумму после двоеточия
+    offer.href = telegramLink(t("order.offer", { name: title, price: priceText }));
     $("#modal-order").textContent = soldOut ? t("modal.notify") : t("modal.order");
   }
 
@@ -302,7 +328,7 @@
           `<button class="thumb${i === 0 ? " is-active" : ""}" data-src="${src}"><img src="${src}" alt="" /></button>`).join("")
       : "";
 
-    if (location.hash !== "#product-" + id) history.replaceState(null, "", "#product-" + id);
+    if (location.hash !== "#lot-" + id) history.replaceState(null, "", "#lot-" + id);
 
     if ($("#modal").hidden) lastFocus = document.activeElement;
     $("#modal").hidden = false;
@@ -313,7 +339,7 @@
   function closeModal() {
     state.openId = null;
     $("#modal").hidden = true;
-    if (location.hash.startsWith("#product-")) {
+    if (/^#(lot|product)-/.test(location.hash)) {
       history.replaceState(null, "", location.pathname + location.search);
     }
     unlockScroll();
@@ -324,9 +350,9 @@
     if ($("#modal").hidden && $("#cart").hidden) document.body.classList.remove("no-scroll");
   }
 
-  // Ссылка вида index.html#product-3 сразу открывает товар
+  // Ссылка вида index.html#lot-3 сразу открывает изделие с лотом №3
   function openFromHash() {
-    const match = location.hash.match(/^#product-(\d+)$/);
+    const match = location.hash.match(/^#(?:lot|product)-(\d+)$/);
     if (match && findProduct(Number(match[1]))) openModal(Number(match[1]));
   }
 
@@ -389,7 +415,7 @@
   function orderMessage() {
     const lines = state.cart.map((i, n) => {
       const p = findProduct(i.id);
-      const line = `${n + 1}. ${field(p, "name")} × ${i.qty}`;
+      const line = `${n + 1}. ${lotTitle(p)} × ${i.qty}`;
       return hasPrice(p) ? `${line} — ${formatPrice(p.price * i.qty)}` : line;
     });
     return [t("order.many"), ...lines, `${t("cart.total")}: ${cartTotalText()}`].join("\n");
@@ -414,15 +440,16 @@
         <li class="cart-item">
           <img src="${p.images[0]}" alt="" />
           <div class="cart-item__info">
+            <p class="cart-item__lot">${lotLabel(p)}</p>
             <p class="cart-item__name">${escapeHtml(field(p, "name"))}</p>
             <p class="cart-item__price">${priceHtml(p, " ")}</p>
             <div class="qty">
-              <button data-qty="-1" data-id="${p.id}" aria-label="${t("cart.less")}">−</button>
+              <button data-qty="-1" data-id="${lotOf(p)}" aria-label="${t("cart.less")}">−</button>
               <span>${i.qty}</span>
-              <button data-qty="1" data-id="${p.id}" aria-label="${t("cart.more")}">+</button>
+              <button data-qty="1" data-id="${lotOf(p)}" aria-label="${t("cart.more")}">+</button>
             </div>
           </div>
-          <button class="cart-item__remove" data-qty="${-i.qty}" data-id="${p.id}" aria-label="${t("cart.remove")}">&times;</button>
+          <button class="cart-item__remove" data-qty="${-i.qty}" data-id="${lotOf(p)}" aria-label="${t("cart.remove")}">&times;</button>
         </li>`;
     }).join("");
 

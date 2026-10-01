@@ -206,8 +206,9 @@ def download_photos(product, urls, enabled):
     return paths, enabled
 
 
-def existing_prices():
-    """Цены, уже вписанные в products.js: {номер поста: {price, oldPrice, inStock}}."""
+def existing_fields():
+    """Что уже есть в products.js и должно сохраниться при повторном импорте:
+    {номер поста: {lot, price, oldPrice, inStock}}."""
     if not PRODUCTS_JS.exists():
         return {}
     keep = {}
@@ -218,7 +219,7 @@ def existing_prices():
             continue
         tg = int(tg.group(1))
         fields = {}
-        for key in ("price", "oldPrice"):
+        for key in ("lot", "price", "oldPrice"):
             m = re.search(rf"\b{key}:\s*(\d+)", block)
             if m:
                 fields[key] = int(m.group(1))
@@ -240,9 +241,11 @@ def render(products):
         " * ----------------",
         " * Каталог собран из Telegram-канала скриптом tools/import_telegram.py.",
         " * Его можно править и вручную. Поля товара:",
-        " *   id          — уникальный номер",
+        " *   id          — внутренний номер (может меняться при импорте)",
+        " *   lot         — номер лота, который видят покупатели. Не меняется:",
+        " *                 новые изделия получают следующий свободный номер",
         " *   tg          — номер поста в Telegram-канале (по нему скрипт",
-        " *                 сохраняет цены при повторном импорте)",
+        " *                 сохраняет лоты и цены при повторном импорте)",
         " *   name        — название",
         " *   category    — одна из категорий из списка CATEGORIES ниже",
         " *   price       — цена в сумах (число, без пробелов), например 3500000.",
@@ -270,7 +273,7 @@ def render(products):
     out += ["};", "", "const PRODUCTS = ["]
     for p in products:
         out.append("  {")
-        for key in ("id", "tg", "name", "category", "price", "oldPrice", "material", "weight", "stones", "images", "inStock"):
+        for key in ("id", "lot", "tg", "name", "category", "price", "oldPrice", "material", "weight", "stones", "images", "inStock"):
             if key in p and (p[key] is not None or key == "price"):
                 out.append(f"    {key}: {js_value(p[key])},")
         for lang in LANGS:
@@ -293,7 +296,7 @@ def main():
     posts = load_posts(channel)
     print(f"Постов: {len(posts)}")
 
-    prices = existing_prices()
+    kept = existing_fields()
     PHOTOS_DIR.mkdir(parents=True, exist_ok=True)
 
     products = []
@@ -305,8 +308,16 @@ def main():
                 skipped.append(post["id"])
             continue
         product["images"], photos_enabled = download_photos(product, post["photos"], photos_enabled)
-        product.update(prices.get(product["tg"], {}))
+        product.update(kept.get(product["tg"], {}))
         products.append(product)
+
+    # Номера лотов: у старых изделий сохраняются, новые (посты идут от старых
+    # к новым) получают следующие свободные номера
+    next_lot = max((p.get("lot", 0) for p in products), default=0) + 1
+    for p in products:
+        if not p.get("lot"):
+            p["lot"] = next_lot
+            next_lot += 1
 
     # новые посты — первыми
     products.reverse()

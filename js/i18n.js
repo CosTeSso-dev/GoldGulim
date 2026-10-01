@@ -6,6 +6,9 @@
  */
 const I18N = {
   ru: {
+    "order.offer": "Здравствуйте! {name} ({price}). Хочу предложить свою цену: ",
+    "modal.offer": "Предложить свою цену",
+    "lot": "Лот",
     "brand": "Opalia",
     "meta.title": "Opalia — ювелирный магазин в Нукусе",
     "meta.description": "Ювелирный магазин «Opalia» в Нукусе с 1998 года: золотые комплекты, серьги, кольца, кулоны и цепочки.",
@@ -20,7 +23,7 @@ const I18N = {
     "hero.cta": "Смотреть каталог",
     "catalog.title": "Каталог",
     "catalog.all": "Все",
-    "catalog.search": "Поиск украшений",
+    "catalog.search": "Поиск или № лота",
     "catalog.sort": "Сортировка",
     "catalog.sortDefault": "По умолчанию",
     "catalog.sortPriceAsc": "Сначала дешевле",
@@ -77,6 +80,9 @@ const I18N = {
     "order.many": "Здравствуйте! Хочу оформить заказ:",
   },
   uz: {
+    "order.offer": "Assalomu alaykum! {name} ({price}). O'z narximni taklif qilmoqchiman: ",
+    "modal.offer": "O'z narxingizni taklif qiling",
+    "lot": "Lot",
     "brand": "Opalia",
     "meta.title": "Opalia — Nukusdagi zargarlik do'koni",
     "meta.description": "1998-yildan beri Nukusdagi «Opalia» zargarlik do'koni: oltin to'plamlar, sirg'alar, uzuklar, kulonlar va zanjirlar.",
@@ -91,7 +97,7 @@ const I18N = {
     "hero.cta": "Katalogni ko'rish",
     "catalog.title": "Katalog",
     "catalog.all": "Barchasi",
-    "catalog.search": "Qidiruv",
+    "catalog.search": "Qidiruv yoki lot №",
     "catalog.sort": "Saralash",
     "catalog.sortDefault": "Standart tartibda",
     "catalog.sortPriceAsc": "Avval arzonlari",
@@ -148,6 +154,9 @@ const I18N = {
     "order.many": "Assalomu alaykum! Buyurtma bermoqchiman:",
   },
   kaa: {
+    "order.offer": "Assalawma áleykum! {name} ({price}). Óz bahamdı usınbaqshıman: ",
+    "modal.offer": "Óz bahańızdı usınıń",
+    "lot": "Lot",
     "brand": "Opalia",
     "meta.title": "Opalia — Nókistegi zergerlik dúkanı",
     "meta.description": "1998-jıldan beri Nókistegi «Opalia» zergerlik dúkanı: altın komplektler, sırǵalar, júzikler, kulonlar hám shınjırlar.",
@@ -162,7 +171,7 @@ const I18N = {
     "hero.cta": "Katalogtı kóriw",
     "catalog.title": "Katalog",
     "catalog.all": "Barlıǵı",
-    "catalog.search": "Izlew",
+    "catalog.search": "Izlew yamasa lot №",
     "catalog.sort": "Saralaw",
     "catalog.sortDefault": "Ádettegi tártipte",
     "catalog.sortPriceAsc": "Dáslep arzanları",
