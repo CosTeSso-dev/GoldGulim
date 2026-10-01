@@ -5,7 +5,8 @@
  *   id          — уникальный номер (просто следующее число)
  *   name        — название
  *   category    — одна из категорий из списка CATEGORIES ниже
- *   price       — цена в сумах (число, без пробелов)
+ *   price       — цена в сумах (число, без пробелов), например 3500000.
+ *                 Пока цена не вписана (null), на сайте будет «Цена по запросу».
  *   oldPrice    — старая цена для скидки (необязательно, можно удалить строку)
  *   material    — металл / материал
  *   stones      — камни (необязательно)
@@ -31,7 +32,7 @@ const PRODUCTS = [
     id: 1,
     name: "Кольцо «Утренняя роса»",
     category: "rings",
-    price: 3486000,
+    price: null,
     material: "Золото 585",
     stones: "Бриллиант 0,15 карат",
     description:
@@ -50,8 +51,7 @@ const PRODUCTS = [
     id: 2,
     name: "Серьги «Капли»",
     category: "earrings",
-    price: 2590000,
-    oldPrice: 2940000,
+    price: null,
     material: "Серебро 925 с позолотой",
     stones: "Жемчуг пресноводный",
     description:
@@ -69,7 +69,7 @@ const PRODUCTS = [
     id: 3,
     name: "Подвеска «Сердце»",
     category: "necklaces",
-    price: 1806000,
+    price: null,
     material: "Серебро 925",
     stones: "Фианит",
     description:
@@ -87,7 +87,7 @@ const PRODUCTS = [
     id: 4,
     name: "Браслет «Звенья»",
     category: "bracelets",
-    price: 4480000,
+    price: null,
     material: "Золото 585",
     description:
       "Массивный браслет из полированных звеньев с надёжным замком-карабином. Длина 18 см.",
@@ -103,7 +103,7 @@ const PRODUCTS = [
     id: 5,
     name: "Кольцо «Изумрудный сад»",
     category: "rings",
-    price: 6398000,
+    price: null,
     material: "Белое золото 585",
     stones: "Изумруд, бриллианты",
     description:
@@ -121,7 +121,7 @@ const PRODUCTS = [
     id: 6,
     name: "Колье «Жемчужная нить»",
     category: "necklaces",
-    price: 3836000,
+    price: null,
     material: "Серебро 925",
     stones: "Жемчуг пресноводный",
     description:

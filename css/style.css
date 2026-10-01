@@ -346,6 +346,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   margin-top: auto;
 }
 .card__price { margin: 0; font-weight: 600; font-size: 17px; }
+.price-request { color: var(--accent-dark); font-weight: 500; font-size: 15px; }
 .card__price s,
 .modal__price s { display: block; color: var(--muted); font-size: 13px; font-weight: 400; }
 

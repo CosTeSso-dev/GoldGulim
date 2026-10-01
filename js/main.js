@@ -64,7 +64,9 @@
       btn.classList.toggle("is-active", active);
       btn.setAttribute("aria-pressed", active);
     });
-    $("#contact-address").textContent = local(SHOP.address);
+    const address = local(SHOP.address);
+    $("#contact-address").textContent = address || "";
+    $("#contact-address").hidden = !address;
   }
 
   function setLang(lang) {
@@ -84,8 +86,18 @@
 
   /* ---------- Утилиты ---------- */
 
+  function hasPrice(p) {
+    return typeof p.price === "number" && p.price > 0;
+  }
+
   function formatPrice(value) {
     return value.toLocaleString("ru-RU") + " " + local(SHOP.currency);
+  }
+
+  // Цена товара (со старой ценой, если есть скидка) или «Цена по запросу»
+  function priceHtml(p, sep) {
+    if (!hasPrice(p)) return `<span class="price-request">${t("card.priceOnRequest")}</span>`;
+    return formatPrice(p.price) + (p.oldPrice ? `${sep}<s>${formatPrice(p.oldPrice)}</s>` : "");
   }
 
   function escapeHtml(str) {
@@ -150,8 +162,9 @@
     });
 
     const sorters = {
-      "price-asc": (a, b) => a.price - b.price,
-      "price-desc": (a, b) => b.price - a.price,
+      // товары без цены — всегда в конце
+      "price-asc": (a, b) => (hasPrice(a) ? a.price : Infinity) - (hasPrice(b) ? b.price : Infinity),
+      "price-desc": (a, b) => (hasPrice(b) ? b.price : -Infinity) - (hasPrice(a) ? a.price : -Infinity),
       new: (a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0),
     };
     if (sorters[state.sort]) list = list.slice().sort(sorters[state.sort]);
@@ -164,7 +177,7 @@
     const stones = field(p, "stones");
     const badges = [
       p.isNew ? `<span class="badge">${t("card.new")}</span>` : "",
-      p.oldPrice ? `<span class="badge badge--sale">−${Math.round((1 - p.price / p.oldPrice) * 100)}%</span>` : "",
+      hasPrice(p) && p.oldPrice ? `<span class="badge badge--sale">−${Math.round((1 - p.price / p.oldPrice) * 100)}%</span>` : "",
       soldOut ? `<span class="badge badge--muted">${t("card.soldOut")}</span>` : "",
     ].join("");
 
@@ -180,8 +193,7 @@
           <p class="card__material">${escapeHtml(field(p, "material"))}${stones ? " · " + escapeHtml(stones) : ""}</p>
           <div class="card__footer">
             <p class="card__price">
-              ${formatPrice(p.price)}
-              ${p.oldPrice ? `<s>${formatPrice(p.oldPrice)}</s>` : ""}
+              ${priceHtml(p, "\n")}
             </p>
             <button class="card__add" data-add="${p.id}" ${soldOut ? "disabled" : ""} aria-label="${t("card.add")}">+</button>
           </div>
@@ -205,7 +217,7 @@
 
     $("#modal-category").textContent = categoryName(p.category);
     $("#modal-title").textContent = name;
-    $("#modal-price").innerHTML = formatPrice(p.price) + (p.oldPrice ? ` <s>${formatPrice(p.oldPrice)}</s>` : "");
+    $("#modal-price").innerHTML = priceHtml(p, " ");
     $("#modal-desc").textContent = field(p, "description");
 
     const specs = [
@@ -227,7 +239,9 @@
 
     const orderText = soldOut
       ? t("order.notify", { name })
-      : t("order.one", { name, price: formatPrice(p.price) });
+      : hasPrice(p)
+        ? t("order.one", { name, price: formatPrice(p.price) })
+        : t("order.ask", { name });
     $("#modal-order").href = telegramLink(orderText + "\n" + productUrl(p.id));
     $("#modal-order").textContent = soldOut ? t("modal.notify") : t("modal.order");
   }
@@ -333,13 +347,17 @@
   function orderMessage() {
     const lines = state.cart.map((i, n) => {
       const p = findProduct(i.id);
-      return `${n + 1}. ${field(p, "name")} × ${i.qty} — ${formatPrice(p.price * i.qty)}`;
+      const line = `${n + 1}. ${field(p, "name")} × ${i.qty}`;
+      return hasPrice(p) ? `${line} — ${formatPrice(p.price * i.qty)}` : line;
     });
-    return [t("order.many"), ...lines, `${t("cart.total")}: ${formatPrice(cartTotal())}`].join("\n");
+    return [t("order.many"), ...lines, `${t("cart.total")}: ${cartTotalText()}`].join("\n");
   }
 
-  function cartTotal() {
-    return state.cart.reduce((sum, i) => sum + findProduct(i.id).price * i.qty, 0);
+  // Итог считается, только если у всех товаров в корзине есть цена
+  function cartTotalText() {
+    const items = state.cart.map((i) => ({ p: findProduct(i.id), qty: i.qty }));
+    if (items.some(({ p }) => !hasPrice(p))) return t("cart.totalOnRequest");
+    return formatPrice(items.reduce((sum, { p, qty }) => sum + p.price * qty, 0));
   }
 
   function renderCart() {
@@ -355,7 +373,7 @@
           <img src="${p.images[0]}" alt="" />
           <div class="cart-item__info">
             <p class="cart-item__name">${escapeHtml(field(p, "name"))}</p>
-            <p class="cart-item__price">${formatPrice(p.price)}</p>
+            <p class="cart-item__price">${priceHtml(p, " ")}</p>
             <div class="qty">
               <button data-qty="-1" data-id="${p.id}" aria-label="${t("cart.less")}">−</button>
               <span>${i.qty}</span>
@@ -371,9 +389,9 @@
     $("#cart-foot").hidden = empty;
     if (!empty) {
       const text = orderMessage();
-      $("#cart-total").textContent = formatPrice(cartTotal());
+      $("#cart-total").textContent = cartTotalText();
       $("#cart-telegram").href = telegramLink(text);
-      $("#cart-whatsapp").href = whatsappLink(text);
+      if (SHOP.whatsapp) $("#cart-whatsapp").href = whatsappLink(text);
     }
   }
 
@@ -390,11 +408,20 @@
 
   /* ---------- Контакты и шапка ---------- */
 
+  // Кнопки контактов, которые не заполнены в config.js, скрываются
   function initContacts() {
-    $("#contact-whatsapp").href = whatsappLink();
-    $("#contact-telegram").href = telegramLink();
-    $("#contact-phone").href = "tel:" + SHOP.phone.replace(/[^\d+]/g, "");
-    $("#contact-phone").textContent = SHOP.phone;
+    $("#contact-whatsapp").hidden = !SHOP.whatsapp;
+    $("#cart-whatsapp").hidden = !SHOP.whatsapp;
+    $("#contact-telegram").hidden = !SHOP.telegram;
+    $("#cart-telegram").hidden = !SHOP.telegram;
+    $("#contact-phone").hidden = !SHOP.phone;
+
+    if (SHOP.whatsapp) $("#contact-whatsapp").href = whatsappLink();
+    if (SHOP.telegram) $("#contact-telegram").href = telegramLink();
+    if (SHOP.phone) {
+      $("#contact-phone").href = "tel:" + SHOP.phone.replace(/[^\d+]/g, "");
+      $("#contact-phone").textContent = SHOP.phone;
+    }
     $("#year").textContent = new Date().getFullYear();
   }
 
