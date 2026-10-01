@@ -18,6 +18,22 @@
     openId: null,
   };
 
+  /* ---------- Цены по весу ---------- */
+
+  // Товарам без своей цены считаем цену: вес × цена грамма из config.js
+  function applyGoldPrices() {
+    const gold = SHOP.goldPrice;
+    if (!gold) return;
+    PRODUCTS.forEach((p) => {
+      if (typeof p.price === "number" && p.price > 0) return;
+      if (!p.weight) return;
+      const probe = Number((String(p.material).match(/\b(\d{3})\b/) || [])[1]) || 585;
+      if (!gold.probes.includes(probe)) return;
+      const rate = p.stones ? gold.withStones : gold.plain;
+      p.price = Math.round((p.weight * rate) / 1000) * 1000;
+    });
+  }
+
   /* ---------- Язык ---------- */
 
   function detectLang() {
@@ -529,6 +545,7 @@
     });
   }
 
+  applyGoldPrices();
   applyStaticTexts();
   renderFilters();
   renderGrid();
