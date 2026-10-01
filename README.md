@@ -100,6 +100,6 @@ python3 tools/import_telegram.py
 - [ ] Проверить цены и описания в `js/products.js`
 - [ ] При желании заменить `images/og-image.png` — эта картинка показывается,
       когда ссылкой на сайт делятся в мессенджерах
-- [ ] После публикации прописать в `index.html` полный адрес картинки превью:
-      `<meta property="og:image" content="https://ваш-сайт/images/og-image.png" />`
-      (Telegram и Facebook не понимают относительный путь)
+- [ ] При переходе на свой домен заменить адрес `costesso-dev.github.io/granat`
+      в `index.html` (строки `og:url` и `og:image`) — по ним мессенджеры
+      показывают превью ссылки
