@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aurum — ювелирные украшения</title>
-  <meta name="description" content="Ювелирные украшения: кольца, серьги, колье и браслеты. Золото 585, серебро 925, натуральные камни." />
+  <title>Гранат — ювелирный магазин в Нукусе</title>
+  <meta name="description" content="Ювелирный магазин «Гранат» в Нукусе с 1998 года: золотые комплекты, серьги, кольца, кулоны и цепочки." />
   <meta name="theme-color" content="#fbf8f4" />
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
@@ -12,9 +12,9 @@
   <!-- Превью ссылки в Telegram, WhatsApp, соцсетях.
        После публикации замените og:image на полный адрес: https://ваш-сайт/images/og-image.png -->
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Aurum" />
-  <meta property="og:title" content="Aurum — ювелирные украшения" />
-  <meta property="og:description" content="Золото, серебро и натуральные камни. Каждое изделие с сертификатом." />
+  <meta property="og:site_name" content="Гранат" />
+  <meta property="og:title" content="Гранат — ювелирный магазин в Нукусе" />
+  <meta property="og:description" content="Работаем с 1998 года. Золото, бриллианты, натуральные камни. Проба подтверждена." />
   <meta property="og:image" content="images/og-image.png" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:locale:alternate" content="uz_UZ" />
@@ -28,7 +28,7 @@
 <body>
   <header class="header">
     <div class="container header__inner">
-      <a href="#" class="logo">Aurum</a>
+      <a href="#" class="logo" data-i18n="brand">Гранат</a>
       <nav class="nav" id="nav">
         <a href="#catalog" data-i18n="nav.catalog">Каталог</a>
         <a href="#about" data-i18n="nav.about">О нас</a>
@@ -51,9 +51,9 @@
   <main>
     <section class="hero">
       <div class="container hero__inner">
-        <p class="hero__eyebrow" data-i18n="hero.eyebrow">Ювелирные украшения ручной работы</p>
+        <p class="hero__eyebrow" data-i18n="hero.eyebrow">Ювелирный магазин в Нукусе · с 1998 года</p>
         <h1 class="hero__title" data-i18n="hero.title">Украшения, которые хранят&nbsp;историю</h1>
-        <p class="hero__text" data-i18n="hero.text">Золото, серебро и натуральные камни. Каждое изделие проходит проверку и&nbsp;поставляется с сертификатом.</p>
+        <p class="hero__text" data-i18n="hero.text">Золотые комплекты, серьги, кольца и кулоны с бриллиантами и натуральными камнями. Проба каждого изделия подтверждена.</p>
         <a href="#catalog" class="btn" data-i18n="hero.cta">Смотреть каталог</a>
       </div>
     </section>
@@ -74,6 +74,7 @@
           </div>
         </div>
         <div class="grid" id="grid"></div>
+        <div class="more"><button class="btn btn--outline" id="more" type="button" hidden></button></div>
         <p class="empty" id="empty" data-i18n="catalog.empty" hidden>Ничего не найдено. Попробуйте изменить запрос.</p>
       </div>
     </section>
@@ -82,13 +83,13 @@
       <div class="container about">
         <div>
           <h2 class="section__title" data-i18n="about.title">О нас</h2>
-          <p data-i18n="about.text">Мы создаём и подбираем украшения, которые хочется носить каждый день и передавать по наследству. Работаем только с сертифицированными металлами и натуральными камнями.</p>
+          <p data-i18n="about.text">Магазин «Гранат» работает в Нукусе с 1998 года. За это время у нас купили украшения тысячи довольных клиентов. Проба каждого изделия подтверждена.</p>
         </div>
         <ul class="features">
-          <li><strong data-i18n="about.f1">Сертификат</strong><span data-i18n="about.f1text">на каждое изделие</span></li>
-          <li><strong data-i18n="about.f2">Проба</strong><span data-i18n="about.f2text">585 и 925, клеймо на изделии</span></li>
-          <li><strong data-i18n="about.f3">Доставка</strong><span data-i18n="about.f3text">по всей стране</span></li>
-          <li><strong data-i18n="about.f4">Подарочная упаковка</strong><span data-i18n="about.f4text">бесплатно</span></li>
+          <li><strong data-i18n="about.f1">С 1998 года</strong><span data-i18n="about.f1text">тысячи довольных клиентов</span></li>
+          <li><strong data-i18n="about.f2">Проба</strong><span data-i18n="about.f2text">583, 585 и 750 — подтверждена</span></li>
+          <li><strong data-i18n="about.f3">Комплекты</strong><span data-i18n="about.f3text">с бриллиантами и камнями</span></li>
+          <li><strong data-i18n="about.f4">Магазин</strong><span data-i18n="about.f4text">Нукус, Орайлык базар</span></li>
         </ul>
       </div>
     </section>
@@ -108,7 +109,7 @@
   </main>
 
   <footer class="footer">
-    <div class="container">© <span id="year"></span> Aurum. <span data-i18n="footer.rights">Все права защищены.</span></div>
+    <div class="container">© <span id="year"></span> <span data-i18n="footer.brand">Гранат, Нукус</span>. <span data-i18n="footer.rights">Все права защищены.</span></div>
   </footer>
 
   <!-- Окно с подробным описанием товара -->

@@ -364,6 +364,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .card__add:hover { background: var(--text); color: #fff; }
 .card__add:disabled { opacity: 0.3; cursor: not-allowed; background: transparent; color: var(--text); }
 
+.more { display: flex; justify-content: center; margin-top: 36px; }
+
 .empty { color: var(--muted); text-align: center; padding: 32px 0; margin: 0; }
 
 /* ---------- О нас ---------- */
@@ -618,6 +620,16 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .section { padding: 64px 0; }
 
   .toolbar__right { width: 100%; }
+  .filters {
+    flex-wrap: nowrap;
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+    padding: 0 20px 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter { flex-shrink: 0; }
   .search { flex: 1; width: auto; min-width: 0; }
 
   .grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }

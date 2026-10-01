@@ -3,8 +3,9 @@
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
-  const CART_KEY = "aurum-cart";
-  const LANG_KEY = "aurum-lang";
+  const CART_KEY = "granat-cart";
+  const LANG_KEY = "granat-lang";
+  const PAGE_SIZE = 12;
   const LANGS = Object.keys(I18N);
 
   const state = {
@@ -12,6 +13,7 @@
     category: "all",
     query: "",
     sort: "default",
+    shown: PAGE_SIZE,
     cart: loadCart(),
     openId: null,
   };
@@ -88,6 +90,10 @@
 
   function hasPrice(p) {
     return typeof p.price === "number" && p.price > 0;
+  }
+
+  function formatWeight(p) {
+    return p.weight ? `${String(p.weight).replace(".", ",")} ${t("unit.gram")}` : "";
   }
 
   function formatPrice(value) {
@@ -174,7 +180,7 @@
   function cardHtml(p) {
     const soldOut = p.inStock === false;
     const name = escapeHtml(field(p, "name"));
-    const stones = field(p, "stones");
+    const details = [field(p, "material"), formatWeight(p), field(p, "stones")].filter(Boolean);
     const badges = [
       p.isNew ? `<span class="badge">${t("card.new")}</span>` : "",
       hasPrice(p) && p.oldPrice ? `<span class="badge badge--sale">−${Math.round((1 - p.price / p.oldPrice) * 100)}%</span>` : "",
@@ -190,7 +196,7 @@
         <div class="card__body">
           <p class="card__category">${escapeHtml(categoryName(p.category))}</p>
           <h3 class="card__title"><button data-open="${p.id}">${name}</button></h3>
-          <p class="card__material">${escapeHtml(field(p, "material"))}${stones ? " · " + escapeHtml(stones) : ""}</p>
+          <p class="card__material">${escapeHtml(details.join(" · "))}</p>
           <div class="card__footer">
             <p class="card__price">
               ${priceHtml(p, "\n")}
@@ -203,8 +209,17 @@
 
   function renderGrid() {
     const list = visibleProducts();
-    $("#grid").innerHTML = list.map(cardHtml).join("");
+    $("#grid").innerHTML = list.slice(0, state.shown).map(cardHtml).join("");
     $("#empty").hidden = list.length > 0;
+    const rest = list.length - state.shown;
+    $("#more").hidden = rest <= 0;
+    $("#more").textContent = t("catalog.more", { count: rest });
+  }
+
+  // При смене фильтра, поиска или сортировки снова показываем первую страницу
+  function resetGrid() {
+    state.shown = PAGE_SIZE;
+    renderGrid();
   }
 
   /* ---------- Карточка товара ---------- */
@@ -218,10 +233,12 @@
     $("#modal-category").textContent = categoryName(p.category);
     $("#modal-title").textContent = name;
     $("#modal-price").innerHTML = priceHtml(p, " ");
-    $("#modal-desc").textContent = field(p, "description");
+    $("#modal-desc").textContent = field(p, "description") || "";
+    $("#modal-desc").hidden = !field(p, "description");
 
     const specs = [
       [t("modal.material"), field(p, "material")],
+      [t("modal.weight"), formatWeight(p)],
       [t("modal.stones"), field(p, "stones")],
       [t("modal.stock"), soldOut ? t("modal.onOrder") : t("modal.inStock")],
     ];
@@ -452,17 +469,17 @@
       if (!btn) return;
       state.category = btn.dataset.category;
       renderFilters();
-      renderGrid();
+      resetGrid();
     });
 
     $("#search").addEventListener("input", (e) => {
       state.query = e.target.value;
-      renderGrid();
+      resetGrid();
     });
 
     $("#sort").addEventListener("change", (e) => {
       state.sort = e.target.value;
-      renderGrid();
+      resetGrid();
     });
 
     $("#lang").addEventListener("click", (e) => {
@@ -491,6 +508,10 @@
       if (e.target.closest("[data-cart-close]")) return closeCart();
     });
 
+    $("#more").addEventListener("click", () => {
+      state.shown += PAGE_SIZE;
+      renderGrid();
+    });
     $("#modal-share").addEventListener("click", shareProduct);
     $("#cart-open").addEventListener("click", openCart);
     $("#cart-clear").addEventListener("click", () => {
