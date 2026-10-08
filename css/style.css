@@ -100,10 +100,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 .logo {
   font-family: var(--serif);
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   text-decoration: none;
   margin-right: auto;
 }
@@ -614,7 +613,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 @media (max-width: 720px) {
   .header__inner { gap: 8px; }
-  .logo { font-size: 24px; letter-spacing: 0.04em; }
+  .logo { font-size: 26px; letter-spacing: 0; }
   .burger { display: flex; }
   .burger,
   .cart-btn,

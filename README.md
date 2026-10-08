@@ -1,4 +1,4 @@
-# «Opalia» — сайт ювелирного магазина в Нукусе
+# «GoldGulim» — сайт ювелирного магазина в Нукусе
 
 Сайт: **https://costesso-dev.github.io/Opalia/**
 
